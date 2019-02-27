@@ -1,0 +1,26 @@
+{
+  "name": "dating-rep",
+  "version": "0.0.1",
+  "description": "A boilerplate for the scroll on image to close feature.",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Root-ish/dating-repo.git"
+  },
+  "keywords": [
+    "scroll",
+    "to",
+    "close"
+  ],
+  "author": "Root_ish",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Root-ish/dating-repo/issues"
+  },
+  "homepage": "https://github.com/Root-ish/dating-repo#readme"
+}
