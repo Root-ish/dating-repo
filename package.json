@@ -3,7 +3,10 @@
   "version": "0.0.1",
   "description": "A boilerplate for the scroll on image to close feature.",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "scroll-detector": "^0.2.3"
+  },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,8 +16,8 @@
     "url": "git+https://github.com/Root-ish/dating-repo.git"
   },
   "keywords": [
-    "scroll to close",
-    "dating app feature"
+    "scroll",
+    "dating"
   ],
   "author": "Root_ish",
   "license": "MIT",
