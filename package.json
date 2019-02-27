@@ -4,19 +4,22 @@
   "description": "A boilerplate for the scroll on image to close feature.",
   "main": "index.js",
   "dependencies": {
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.11"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "say-hello": "echo 'Hello World'"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Root-ish/dating-repo.git"
   },
   "keywords": [
-    "scroll",
-    "dating"
+    "Dating-app",
+    "Feature",
+    "Scroll"
   ],
   "author": "Root_ish",
   "license": "MIT",
