@@ -1,8 +1,13 @@
-# dating-repo
+<div align="center">
+ <img src="https://github.com/Root-ish/dating-repo/blob/master/static/images/logo.svg" alt="Surfboard logo" width=50% height=auto>
+</div>
 
-A boilerplate for "swipe to close" feature.
+# Drinkers, serious about dating
 
+## Description
 
+Drinkers is an app where users can find their Soulmates, based on their favourite drinks.
+Users fill out a survey about their favorite beers / drinks and get matched with other users when their beer profiles match for more than 80%.
 
 ## Table of Contents
 
@@ -10,21 +15,20 @@ A boilerplate for "swipe to close" feature.
 - [License](#license)
 
 
-
 ## Installation
 
 
-### Clone
+👯 Clone this repo to your local machine using :
+`https://github.com/Root-ish/dating-repo.git`
 
-- 👯 Clone this repo to your local machine using `https://github.com/Root-ish/dating-repo.git`
 
+And install the app using :
+`npm install`
 
-### Setup
+### Available scripts
 
-```shell
-$ sudo yarn install
-$ npm install
-```
+To start run the following command :
+`npm run start`
 
 
 
