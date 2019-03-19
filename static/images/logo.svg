@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="245px" height="67px" viewBox="0 0 245 67" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch Beta 53 (72441) - https://sketchapp.com -->
+    <title>Page 1</title>
+    <desc>Created with Sketch Beta.</desc>
+    <g id="Second-Prototype" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="iPhone-8-Copy-11" transform="translate(-65.000000, -201.000000)" fill="#231F20">
+            <g id="Page-1" transform="translate(62.000000, 188.000000)">
+                <text id="DRINKERS" font-family="Lato-Black, Lato" font-size="50" font-weight="700">
+                    <tspan x="0.7003" y="49.8251526">DRINKERS</tspan>
+                </text>
+                <text id="Serious" font-family="Lato-Light, Lato" font-size="21" font-weight="300" letter-spacing="0.045">
+                    <tspan x="2.7003" y="75.3273641">S</tspan>
+                    <tspan x="13.7178" y="75.3273641" letter-spacing="0.15">erious</tspan>
+                </text>
+                <text id="about" font-family="Lato-Light, Lato" font-size="21" font-weight="300" letter-spacing="0.15">
+                    <tspan x="100.9383" y="75.3693641">about</tspan>
+                </text>
+                <text id="dating" font-family="Lato-Light, Lato" font-size="21" font-weight="300" letter-spacing="0.15">
+                    <tspan x="178.4283" y="75.3273641">d</tspan>
+                    <tspan x="190.0443" y="75.3273641" letter-spacing="0.0345">a</tspan>
+                    <tspan x="200.2953" y="75.3273641">ting</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>
