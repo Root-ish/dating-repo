@@ -7,7 +7,7 @@
 ## Description
 
 Drinkers is an app where users can find their Soulmates, based on their favourite drinks.
-Users fill out a survey about their favorite beers / drinks and get matched with other users when their beer profiles match for more than 80%.
+Users fill out a survey about their favourite beers / drinks and get matched with other users when their beer profiles match for more than 80%.
 
 ## Table of Contents
 
@@ -29,7 +29,6 @@ And install the app using :
 
 To start run the following command :
 `npm run start`
-
 
 
 ## License

@@ -1,0 +1,22 @@
+<!doctype html>
+<link rel=stylesheet href=assets/styles/index.css>
+<title>Users</title>
+<h1>Users</h1>
+<% for (var index = 0; index < user.length; index++) { %>
+  <% if (user[index].profilePhoto) { %>
+  <img
+    alt
+    src="assets/upload/<%= user[index].profilePhoto %>"
+  >
+  <% } %>
+  <h2>
+    <a href="/<%= user[index].userId %>">
+      <%= user[index].name %>
+    </a>
+  </h2>
+  <p><%= user[index].profileAbout %></p>
+<% } %>
+
+<p>
+  <a href=/sign-up>Sing up</a>
+</p>

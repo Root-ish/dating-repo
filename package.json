@@ -1,13 +1,20 @@
 {
   "name": "dating-rep",
   "version": "0.0.1",
-  "description": "A boilerplate for the scroll on image to close feature.",
+  "description": "A repo for the app - Drinkers, serious about dating.",
   "main": "index.js",
   "dependencies": {
+    "array-find": "^1.0.0",
+    "body-parser": "^1.18.3",
     "camelcase": "^5.0.0",
+    "ejs": "^2.6.1",
     "express": "^4.16.4",
+    "less-middleware": "^3.1.0",
     "lodash": "^4.17.11",
-    "scroll-detector": "^0.2.3"
+    "multer": "^1.4.1",
+    "node-sass": "^4.11.0",
+    "node-sass-middleware": "^0.11.0",
+    "slug": "^1.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.18.10"

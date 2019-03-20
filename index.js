@@ -1,19 +1,24 @@
-var express = require('express')
-var user = require('./routes/user.js')
-var chat = require('./routes/user.js')
+const express = require('express')
+const sassMiddleware = require('node-sass-middleware')
+const path = require('path');
+const bodyParser = require('body-parser')
+const router = require('./server/routes')
 
 express()
-    .use('/static', express.static('static'))
-    .use('/views', express.static('views'))
-    .use('/user', user)
-    .use('/chat', chat)
-    .set('view engine', 'pug')
-    .get('/', function (req, res) {
-      res.render('index', {title: 'Pickle Rick', message: 'Wabba dabba dub dub'})
-    })
+    .use(sassMiddleware({
+      src: __dirname ,
+      dest: path.join(__dirname),
+       debug: true,
+       outputStyle: 'compressed'
+     }))
+    .use('/assets', express.static(path.join(__dirname, 'assets')))
+    .use(bodyParser.urlencoded({extended: true}))
+    .set('view engine', 'ejs')
+    .use('views', express.static('view'))
+    .use('/', router)
     .get('*', notFound)
     .listen(8000);
 
     function notFound(req, res){
-      res.send("404 not found")
+      res.status(404).send("404 not found")
     }

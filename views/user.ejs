@@ -1,0 +1,23 @@
+<!doctype html>
+<link rel=stylesheet href=assets/styles/index.css>
+<title><%= user.name %> - My movie website</title>
+<h1><%= user.name %></h1>
+<% if (user.profilePhoto) { %>
+<img
+  alt
+  src="assets/upload/<%= user.profilePhoto %>"
+>
+<% } %>
+<p><%= user.profileAbout %></p>
+<% for (var index = 0; index < beers.length; index++) { %>
+  <p><%= beers[index].name %></p>
+  <p><%= user.beerProfile[index] %></p>
+<% } %>
+<p>
+  <button
+    id=js-remove
+    user-id="<%= user.id %>"
+    class=danger
+  >Remove</button>
+</p>
+<p><a href="/">Back to list</a></p>

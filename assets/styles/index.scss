@@ -1,0 +1,29 @@
+* { box-sizing: border-box }
+
+…
+
+label, input, textarea, button { margin: 1em 0 }
+
+input, textarea, button {
+  font-size: 1em;
+  padding: 0.5em;
+  border-width: 0;
+  border-radius: 0.25em
+}
+
+input, textarea { width: 100% }
+
+body {
+  background-color: #000;
+  color: #fff;
+
+  h1 {
+    color: #f00;
+  }
+}
+
+
+img {
+  max-width: 100%;
+  max-height: 15em
+}

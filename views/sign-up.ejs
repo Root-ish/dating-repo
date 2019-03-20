@@ -1,0 +1,26 @@
+<!doctype html>
+<link rel=stylesheet href=assets/styles/index.css>
+<title>Add a movie - My movie website</title>
+<h1>Add a new movie</h1>
+<form action=/ method=post enctype=multipart/form-data>
+  <label>Name <input name=name></label>
+  <label>Birthday <input name=born></label>
+  <label>
+    Cover
+    <input name=profilePhoto type=file accept=image/*>
+  </label>
+  <label>
+    Tell something about yourself
+    <textarea
+      name=profileAbout
+      rows=5
+    ></textarea>
+  </label>
+  <% for (var index = 0; index < beers.length; index++) { %>
+    <label><%= beers[index].name %>
+      <input type="radio" name='beerProfile[<%-[index] %>]' value="true"> like<br>
+      <input type="radio" name='beerProfile[<%-[index] %>]' value="false"> nope<br>
+    </label>
+  <% } %>
+  <button>Next</button>
+</form>
