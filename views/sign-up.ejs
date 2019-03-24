@@ -1,8 +1,8 @@
 <!doctype html>
 <link rel=stylesheet href=assets/styles/index.css>
-<title>Add a movie - My movie website</title>
-<h1>Add a new movie</h1>
-<form action=/ method=post enctype=multipart/form-data>
+<title>Sign up</title>
+<h1>Sign up</h1>
+<form action=/ method=post>
   <label>Name <input name=name></label>
   <label>Birthday <input name=born></label>
   <label>
@@ -16,11 +16,35 @@
       rows=5
     ></textarea>
   </label>
-  <% for (var index = 0; index < beers.length; index++) { %>
-    <label><%= beers[index].name %>
-      <input type="radio" name='beerProfile[<%-[index] %>]' value="true"> like<br>
-      <input type="radio" name='beerProfile[<%-[index] %>]' value="false"> nope<br>
-    </label>
-  <% } %>
+  <ul id="beer_results">
+
+  </ul>
   <button>Next</button>
 </form>
+
+<form onsubmit="beerSearch(event)">
+  <input type="text" name="derp" id="searchName" value="">
+  <button type="submit" name="button">search</button>
+</form>
+
+<script type="text/javascript">
+
+  function beerSearch(event) {
+    fetch('https://api.punkapi.com/v2/beers?beer_name=' + document.getElementById("searchName").value , {
+      method: 'GET',
+      headers: {'HTTP_ACCEPT': 'application/json'}
+      })
+    .then(response => response.json())
+    .then(function(data) {
+      let searchResults = data;
+      for (var i = 0; i < searchResults.length; i++) {
+        document.getElementById('beer_results').innerHTML +=
+        '<input type="radio" name="' + searchResults[i] + '">' + searchResults[i].name
+      }
+      console.log(searchResults);
+    })
+    .catch(error => console.error('Error:', error))
+    event.preventDefault()
+  }
+
+</script>

@@ -11,13 +11,6 @@
 <p><%= user.profileAbout %></p>
 <% for (var index = 0; index < beers.length; index++) { %>
   <p><%= beers[index].name %></p>
-  <p><%= user.beerProfile[index] %></p>
 <% } %>
-<p>
-  <button
-    id=js-remove
-    user-id="<%= user.id %>"
-    class=danger
-  >Remove</button>
-</p>
+
 <p><a href="/">Back to list</a></p>
