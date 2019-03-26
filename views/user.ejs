@@ -13,4 +13,14 @@
   <p><%= beers[index].name %></p>
 <% } %>
 
+<% if (user) { %>
+
+<button
+      id=js-remove
+      user-id="<%= user.id %>"
+      class=danger
+    >Remove</button>
+
+<% } %>
+
 <p><a href="/">Back to list</a></p>
