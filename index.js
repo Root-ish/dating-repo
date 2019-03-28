@@ -17,4 +17,4 @@ express()
     .set('view engine', 'ejs')
     .use('views', express.static('view'))
     .use('/', router)
-    .listen(8000);
+    .listen(process.env.PORT || 8000);
