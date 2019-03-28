@@ -12,7 +12,6 @@ require('dotenv').config()
 
 var db = null
 var url = process.env.DB
-var user = process.env.DB_USER
 
 mongo.MongoClient.connect(url, {useNewUrlParser: true}, function (err, client) {
   if (err) throw err
@@ -74,25 +73,27 @@ router.get('/log-in', (req, res) => {
 // Log-in Post
 
 router.post('/log-in', (req, res) => {
-const username = req.body.username
-const password = req.body.password
+  const username = req.body.username
+  const password = req.body.password
 
-db.collection('users').findOne({
-  name: username
-}, done);
+  console.log(password);
 
-  function done(err, user) {
-    if (err) {
-      console.log(err);
-    } if(user.password === password) {
-      // console.log(user._id);
-      req.session.user = user;
-      res.redirect('/')
+  db.collection('users').findOne({
+    name: username
+  }, done);
+
+    function done(err, user) {
+      if (err) {
+        console.log(err);
+      } if(user.password === password) {
+        // console.log(user._id);
+        req.session.user = user;
+        res.redirect('/')
+      }
+      else {
+        console.log("Wrong password");
+      }
     }
-    else {
-      console.log("Wrong password");
-    }
-  }
 });
 
 
@@ -140,7 +141,7 @@ if (user.beerProfile) {
         console.log(err);
       }
       else {
-        console.log(match);
+        // console.log(match);
         user.match = match;
       }
     }
