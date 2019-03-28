@@ -1,5 +1,5 @@
 <!doctype html>
-<link rel=stylesheet href=assets/styles/index.css>
+<link rel=stylesheet href=../assets/styles/index.css>
 <title>Account</title>
 
 
@@ -10,12 +10,12 @@
     <% if (user.profilePhoto) { %>
     <img class="account__image"
       alt
-      src="assets/upload/<%= user.profilePhoto %>"
+      src="../assets/upload/<%= user.profilePhoto %>"
     >
     <% } else {%>
       <img class="account__image"
         alt
-        src="assets/images/user.png"
+        src="../assets/images/user.png"
       >
       <% } %>
       </a>

@@ -2,7 +2,16 @@
     "version": 2,
     "name": "Dating-repo",
     "builds": [
-        { "src": "./assets", "use": "@now/static" },
-        { "src": "**/*.js", "use": "@now/node" }
-    ]
+        { "src": "index.js", "use": "@now/node", "config": { "maxLambdaSize": "50mb" } },
+        { "src": "server/routes.js", "use": "@now/node" }
+    ],
+    "routes": [{
+    "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
+    },
+    "src": "/.*",
+    "dest": "/index.js"
+}]
 }

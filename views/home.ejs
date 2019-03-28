@@ -8,7 +8,7 @@
 <div class="left__panel">
 
   <div class="account__container">
-    <a href="<%= user._id %>">
+    <a href="user/<%= user._id %>">
     <% if (user.profilePhoto) { %>
     <img class="account__image"
       alt
@@ -21,7 +21,7 @@
       >
       <% } %>
       </a>
-      <a href="<%= user._id %>">
+      <a href="user/<%= user._id %>">
         <h2 class="account__name"><%= user.name %></h2>
       </a>
   </div>

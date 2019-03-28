@@ -41,5 +41,8 @@
   "bugs": {
     "url": "https://github.com/Root-ish/dating-repo/issues"
   },
-  "homepage": "https://github.com/Root-ish/dating-repo#readme"
+  "homepage": "https://github.com/Root-ish/dating-repo#readme",
+  "engines": {
+    "node": "10.x"
+  },
 }

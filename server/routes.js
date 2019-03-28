@@ -1,10 +1,9 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const find = require('array-find')
 const router = express.Router()
 const slug = require('slug')
 const multer = require('multer')
-const upload = multer({dest: 'assets/upload/'})
+const upload = multer({dest: '../assets/upload/'})
 const mongo = require('mongodb')
 const session = require('express-session')
 let searchResults = [];
@@ -170,7 +169,7 @@ router.get('/not-found', (req, res) => {
 
 // Get account details
 
-router.get('/:id', (req, res, next) => {
+router.get('/user/:id', (req, res, next) => {
   const id = req.params.id
   if (id.length == 12 || id.length == 24) {
 
@@ -192,12 +191,11 @@ router.get('/:id', (req, res, next) => {
 });
 
 
-// Post for adding new beer
-
-router.post('/:id', upload.single('photo'), (req, res, next) => {
+// Post for changing user name
+//
+router.post('/user/:id', upload.single('photo'), (req, res, next) => {
 
   if (req.session.user) {
-    const user = req.session.user.beerProfile
       db.collection('users').updateMany(
         { _id: mongo.ObjectID(req.session.user._id)},
         { $set: { name : req.body.name, profilePhoto : req.file ? req.file.filename : null, } },
@@ -210,7 +208,7 @@ router.post('/:id', upload.single('photo'), (req, res, next) => {
           res.redirect('/');
         }
       }
-
+    }else {
   }
 });
 
@@ -222,10 +220,10 @@ router.post('/add-beer', (req, res, next) => {
 
   if (req.session.user) {
     const userBeer = req.session.user.beerProfile
-    console.log({[req.body.bid]: req.body.name});
+    // console.log({[req.body.bid]: req.body.name});
       db.collection('users').updateOne(
         { _id: mongo.ObjectID(req.session.user._id)},
-        { $set: { beerProfile : {[req.body.bid]: { "name" : req.body.name, "img" : req.body.img, "bid" : req.body.bid } } } },
+        { $set: { beerProfile : {[req.body.beerBid]: { "name" : req.body.beerName, "img" : req.body.beerImg, "bid" : req.body.beerBid } } } },
         { upsert: true }, done)
 
       function done(err, data) {

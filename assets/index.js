@@ -13,7 +13,7 @@ function beerSearch(event) {
       // console.log('<li onClick="addBeer(' + Beers[i].beer.bid + ')">' + Beers[i].beer.beer_name + '</li>');
       document.getElementById('beer_results').innerHTML +=
 
-      '<form action="/add-beer" method="post"><img src="' + Beers[i].beer.beer_label + '"><input class="beer__name" name="img" value="' + Beers[i].beer.beer_label + '"><input class="beer__bid" name="bid" value="' + Beers[i].beer.bid + '"><input class="beer__name" name="name" value="' + Beers[i].beer.beer_name + '"><h3>' + Beers[i].beer.beer_name + '</h3><button type="submit" name="button">Add</button></form>'
+      '<form action="/add-beer" method="post"><img src="' + Beers[i].beer.beer_label + '"><input class="beer__name" name="beerImg" value="' + Beers[i].beer.beer_label + '"><input class="beer__bid" name="beerBid" value="' + Beers[i].beer.bid + '"><input class="beer__name" name="beerName" value="' + Beers[i].beer.beer_name + '"><h3>' + Beers[i].beer.beer_name + '</h3><button type="submit" name="button">Add</button></form>'
 
     }
   })
