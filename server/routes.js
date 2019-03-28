@@ -132,7 +132,7 @@ if (user.beerProfile) {
     const bitBeer = beer.bid
     // console.log({"beerProfile": {[bitBeer]: {"bid" : bitBeer}}});
     const nameBeer = beer.name
-    const beerProfiles = db.collection('users').findOne({"beer.bid": "24893"}, done);
+    const beerProfiles = db.collection('drinkers').findOne({"beer.bid": "24893"}, done);
 
     function done(err, match) {
       if (err) {
@@ -172,7 +172,7 @@ router.get('/user/:id', (req, res, next) => {
   const id = req.params.id
   if (id.length == 12 || id.length == 24) {
 
-  	db.collection('users').findOne({
+  	db.collection('drinkers').findOne({
   	 _id: mongo.ObjectID(id)
    }, done)
 
@@ -195,7 +195,7 @@ router.get('/user/:id', (req, res, next) => {
 router.post('/user/:id', upload.single('photo'), (req, res, next) => {
 
   if (req.session.user) {
-      db.collection('users').updateMany(
+      db.collection('drinkers').updateMany(
         { _id: mongo.ObjectID(req.session.user._id)},
         { $set: { name : req.body.name, profilePhoto : req.file ? req.file.filename : null, } },
         { upsert: true }, done)
@@ -220,7 +220,7 @@ router.post('/add-beer', (req, res, next) => {
   if (req.session.user) {
     const userBeer = req.session.user.beerProfile
     // console.log({[req.body.bid]: req.body.name});
-      db.collection('users').updateOne(
+      db.collection('drinkers').updateOne(
         { _id: mongo.ObjectID(req.session.user._id)},
         { $set: { beerProfile : {[req.body.beerBid]: { "name" : req.body.beerName, "img" : req.body.beerImg, "bid" : req.body.beerBid } } } },
         { upsert: true }, done)
