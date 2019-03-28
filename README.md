@@ -1,6 +1,3 @@
-# README.md
-
-
 <div align="center">
  <img src="https://github.com/Root-ish/dating-repo/blob/master/logo-color.png" alt=“Drinkers logo” width=50% height=auto>
 <h2>Drink. Match. Love</h2>
