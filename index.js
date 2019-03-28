@@ -16,9 +16,4 @@ express()
     .set('view engine', 'ejs')
     .use('views', express.static('view'))
     .use('/', router)
-    .get('*', notFound)
     .listen(8000);
-
-    function notFound(req, res){
-      res.status(404).send("404 not found")
-    }

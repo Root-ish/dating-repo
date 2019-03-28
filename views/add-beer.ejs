@@ -1,9 +1,6 @@
 <!doctype html>
 <link rel=stylesheet href=assets/styles/index.css>
-<script src="assets/index.js"></script>
-<title>Drinkers</title>
-
-<% if (user) { %>
+<title>Add a new beer <%(user.name)%></title>
 
 <div class="left__panel">
 
@@ -27,12 +24,12 @@
   </div>
 
   <div class="container">
-    <ul class="switcher__container">
-      <li id="switch__titleBeers" onclick="slideleft()" class="switch__title active">Beers you like</li>
-      <li id="switch__titleMessage" onclick="slideright()" class="switch__title">Messages</li>
-    </ul>
+      <ul class="switcher__container">
+        <li id="switch__titleBeers" onclick="slideleft()" class="switch__title active">Beers you like</li>
+        <li id="switch__titleMessage" onclick="slideright()" class="switch__title">Messages</li>
+      </ul>
 
-    <div id="userBeerList" class="userBeerList">
+      <div id="userBeerList" class="userBeerList">
       <% if (user.beerProfile) { %>
       <% for (var index = 0; index < Object.keys(user.beerProfile).length; index++) {
         var userBeer = Object.values(user.beerProfile)[index]
@@ -72,30 +69,16 @@
 </div>
 
 <div class="right__panel">
-  <% if (user.match) { %>
 
-    <% } else {%>
-      <div class="empty__state__container">
-        <h3 class="empty__text">Start adding beers and swiping</h3>
-        <a class="empty__button" href="/add-beer"><button type="button" name="button">Add beer</button></a>
-      </div>
-    <% } %>
-</div>
+  <form id="beer__search" class="beer__search" onsubmit="beerSearch(event)">
+    <input type="text" name="derp" id="searchName" value="">
+    <button type="submit" name="button">search</button>
+  </form>
 
+  <ul id="beer_results">
 
-
-<% } %>
-
-<% if (!user) { %>
-
-<nav class="navigation">
-  <img class="navigation__image" src="assets/images/logo.png" alt="logo Drinkers">
-  <button class="navigation__button" type="button" name="button"><a href=/log-in>Log in</a></button>
-</nav>
-<div class="body__container">
-
-  <h2 class="container__text">Drink. Match. Love</h2>
-  <button class="container__button" type="button" name="button"><a href=/sign-up>sign-up</a></button>
+  </ul>
 
 </div>
-<% } %>
+
+<script type="text/javascript" src="assets/index.js"></script>

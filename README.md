@@ -1,38 +1,94 @@
+# README.md
+
+
 <div align="center">
- <img src="https://github.com/Root-ish/dating-repo/blob/master/static/images/logo.svg" alt="Surfboard logo" width=50% height=auto>
+ <img src="https://github.com/Root-ish/dating-repo/blob/master/logo-color.png" alt=“Drinkers logo” width=50% height=auto>
+<h2>Drink. Match. Love</h2>
 </div>
 
 # Drinkers, serious about dating
 
 ## Description
 
-Drinkers is an app where users can find their Soulmates, based on their favourite drinks.
-Users fill out a survey about their favourite beers / drinks and get matched with other users when their beer profiles match for more than 80%.
+Drinkers is an app where users can find their Soulmates, based on their favourite drinks. Simple add your favourite beers using our Untappd API and find potential matches based on each others beer interests.
+
 
 ## Table of Contents
-
+- [Features](#Features)
 - [Installation](#installation)
+- [Usage](#usage)
+- [Build with](#Build-with)
+- [Contributing](#)
 - [License](#license)
+
+## Features
+- Users can sign-up and log-in on Drinkers,
+- Users can add their favourite beers using a search function through the [API Documentation](https://untappd.com/api/docs)
+- Users can experience different states throughout the app. Such as the empty state.
 
 
 ## Installation
+Drinkers can be installed using two methods. Using the terminal or using the Github dekstop app ( or an alternative GUI app, such as Gitkraken )
 
+### Option 1 : Github visual tool
+
+Click on the green button “Clone or Download. Select open in desktop and grab a cup of coffee.
+
+![Clone GUI](https://github.com/Root-ish/dating-repo/blob/master/Dating-repo-install.gif)
+
+Once cloned , open the terminal and run :
+`npm install`
+
+### Option 2 : Terminal
+
+Browse to the preferred destination folder in the terminal using :
+` cd <path>`
 
 👯 Clone this repo to your local machine using :
-`https://github.com/Root-ish/dating-repo.git`
+`git clone https://github.com/Root-ish/dating-repo.git`
+
+
+![Clone gif](https://github.com/Root-ish/dating-repo/blob/master/Screen%20Recording%202019-03-27%20at%2017.17.06.gif)
 
 
 And install the app using :
 `npm install`
 
-### Available scripts
-
-To start run the following command :
+## Usage
+To start the server, run the following command :
 `npm run start`
+
+In the app users can create an account, log-in and search for beers.
+
+![Users states](https://github.com/Root-ish/dating-repo/blob/master/Screen%20Recording%202019-03-28%20at%2002.52.25.gif)
+
+
+## Build with
+- [Array find - npm](https://www.npmjs.com/package/array-find)
+- [body-parser  -  npm](https://www.npmjs.com/package/body-parser)
+- [camelcase  -  npm](https://www.npmjs.com/package/camelcase)
+- [dotenv  -  npm](https://www.npmjs.com/package/dotenv)
+- [ejs  -  npm](https://www.npmjs.com/package/ejs)
+- [express  -  npm](https://www.npmjs.com/package/express)
+- [express-session  -  npm](https://www.npmjs.com/package/express-session)
+- [mongodb  -  npm](https://www.npmjs.com/package/mongodb)
+- [multer  -  npm](https://www.npmjs.com/package/multer)
+- [node-sass  -  npm](https://www.npmjs.com/package/node-sass)
+- [node-sass-middleware  -  npm](https://www.npmjs.com/package/node-sass-middleware)
+- [npm  -  npm](https://www.npmjs.com/package/npm)
+- [slug  -  npm](https://www.npmjs.com/package/slug)
+- [underscore  -  npm](https://www.npmjs.com/package/underscore)
+
+## Process
+
+See wiki for process [wiki](https://github.com/Root-ish/dating-repo/wiki)
+
+
+## Contributing
+
+Found a bug or want to request a feature, please contact me using the issue tracker : [Issues · Root-ish/dating-repo · GitHub](https://github.com/Root-ish/dating-repo/issues)
 
 
 ## License
 
-
-
-- **[MIT license](https://github.com/Root-ish/dating-repo/blob/master/LICENSE)**
+- [MIT license](https://github.com/Root-ish/dating-repo/blob/master/LICENSE)

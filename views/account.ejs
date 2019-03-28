@@ -1,9 +1,7 @@
 <!doctype html>
 <link rel=stylesheet href=assets/styles/index.css>
-<script src="assets/index.js"></script>
-<title>Drinkers</title>
+<title>Account</title>
 
-<% if (user) { %>
 
 <div class="left__panel">
 
@@ -72,30 +70,18 @@
 </div>
 
 <div class="right__panel">
-  <% if (user.match) { %>
 
-    <% } else {%>
-      <div class="empty__state__container">
-        <h3 class="empty__text">Start adding beers and swiping</h3>
-        <a class="empty__button" href="/add-beer"><button type="button" name="button">Add beer</button></a>
-      </div>
-    <% } %>
-</div>
+  <form action="/:id" method="post" enctype=multipart/form-data>
+    <input type="text" name="name" value="<%- user.name %>">
+    <input
+      name=photo
+      type=file
+      accept=image/*
+    >
+    <button type="submit" name="button">change</button>
+  </form>
 
+  <a href=/log-out>Log out</a>
 
-
-<% } %>
-
-<% if (!user) { %>
-
-<nav class="navigation">
-  <img class="navigation__image" src="assets/images/logo.png" alt="logo Drinkers">
-  <button class="navigation__button" type="button" name="button"><a href=/log-in>Log in</a></button>
-</nav>
-<div class="body__container">
-
-  <h2 class="container__text">Drink. Match. Love</h2>
-  <button class="container__button" type="button" name="button"><a href=/sign-up>sign-up</a></button>
 
 </div>
-<% } %>

@@ -38,8 +38,8 @@ router.get('/sign-up', (req, res) => {
 // Post sign-up form
 
 router.post('/sign-up', (req, res, next) => {
-var username = req.body.username
-var password = req.body.password
+const username = req.body.username
+const password = req.body.password
 
 if (!username || !password) {
   return res.status(400).send('Username or password are missing')
@@ -55,11 +55,11 @@ else {
     password: password
 }, done)
 
-  function done(err, data) {
+  function done(err, user) {
     if (err) {
       next(err)
     } else {
-      req.session.user = {username: username};
+      req.session.user = user;
       res.redirect('/')
     }
   }
@@ -76,18 +76,23 @@ router.get('/log-in', (req, res) => {
 // Log-in Post
 
 router.post('/log-in', (req, res) => {
-var username = req.body.username
-var password = req.body.password
+const username = req.body.username
+const password = req.body.password
 
-db.collection('users').find({name: username}, done);
+db.collection('users').findOne({
+  name: username
+}, done);
 
-  function done(err, data) {
+  function done(err, user) {
     if (err) {
-      next(err)
-    } else {
-      var user = db.collection('users').find({name: username})
-      req.session.user = {username: user.username};
+      console.log(err);
+    } if(user.password === password) {
+      // console.log(user._id);
+      req.session.user = user;
       res.redirect('/')
+    }
+    else {
+      console.log("Wrong password");
     }
   }
 });
@@ -109,13 +114,104 @@ router.get('/log-out', (req, res, next) => {
 
 
 
+// Home page
+
+router.get('/', (req, res, next) => {
+
+  if (req.session.user) {
+    matchUsers(req.session.user)
+    res.render('home.ejs', {user: req.session.user})
+  } else {
+    res.render('home.ejs', {user: null})
+  }
+
+});
+
+
+function matchUsers(user){
+if (user.beerProfile) {
+  for (var i = 0; i < Object.keys(user.beerProfile).length; i++) {
+    const beer = Object.values(user.beerProfile)[i]
+    const bitBeer = beer.bid
+    // console.log({"beerProfile": {[bitBeer]: {"bid" : bitBeer}}});
+    const nameBeer = beer.name
+    const beerProfiles = db.collection('users').findOne({"beer.bid": "24893"}, done);
+
+    function done(err, match) {
+      if (err) {
+        console.log(err);
+      }
+      else {
+        console.log(match);
+        user.match = match;
+      }
+    }
+  }
+} else {
+  console.log("no beer profile");
+}
+}
+
+
+
 // Get form for adding new beer
 
-router.get('/addBeer', (req, res) => {
+router.get('/add-beer', (req, res) => {
   if (req.session.user) {
-    res.render('addBeer.ejs',  {searchResults})
+    res.render('add-beer.ejs', {user: req.session.user})
   } else {
+    res.redirect('/');
     return res.status(401).send('Not loged in...')
+  }
+});
+
+router.get('/not-found', (req, res) => {
+  res.render('not-found.ejs')
+});
+
+// Get account details
+
+router.get('/:id', (req, res, next) => {
+  const id = req.params.id
+  if (id.length == 12 || id.length == 24) {
+
+  	db.collection('users').findOne({
+  	 _id: mongo.ObjectID(id)
+   }, done)
+
+   function done(err, user) {
+  	 if (err) {
+  		 next(err)
+       res.redirect('/');
+  	 } else {
+  		 res.render('account.ejs', {user: user})
+  	 }
+   }
+} else {
+  res.redirect('/not-found');
+}
+});
+
+
+// Post for adding new beer
+
+router.post('/:id', upload.single('photo'), (req, res, next) => {
+
+  if (req.session.user) {
+    const user = req.session.user.beerProfile
+      db.collection('users').updateMany(
+        { _id: mongo.ObjectID(req.session.user._id)},
+        { $set: { name : req.body.name, profilePhoto : req.file ? req.file.filename : null, } },
+        { upsert: true }, done)
+
+      function done(err, data) {
+        if (err) {
+          next(err)
+        } else {
+          res.redirect('/');
+        }
+      }
+
   }
 });
 
@@ -123,85 +219,27 @@ router.get('/addBeer', (req, res) => {
 
 // Post for adding new beer
 
-router.post('/', (req, res, next) => {
+router.post('/add-beer', (req, res, next) => {
 
   if (req.session.user) {
+    const userBeer = req.session.user.beerProfile
+    console.log({[req.body.bid]: req.body.name});
+      db.collection('users').updateOne(
+        { _id: mongo.ObjectID(req.session.user._id)},
+        { $set: { beerProfile : {[req.body.bid]: { "name" : req.body.name, "img" : req.body.img, "bid" : req.body.bid } } } },
+        { upsert: true }, done)
 
-  }
+      function done(err, data) {
+        if (err) {
+          next(err)
+        } else {
+          console.log("nice! You added");
+          res.redirect('/');
+        }
+      }
 
-	db.collection('users').insertOne({
-    name: req.body.name,
-    profileAbout: req.body.profileAbout,
-    profilePhoto: req.file ? req.file.filename : null,
-    description: req.body.description,
-    beerProfile: req.body.beerProfile
-  }, done)
-
-  function done(err, data) {
-    if (err) {
-      next(err)
-    } else {
-      res.redirect('/' + data.insertedId)
-    }
   }
 });
 
-
-
-
-
-// get list of beers
-
-router.get('/', (req, res, next) => {
-	db.collection('users').find().toArray(done)
-
-  function done(err, data) {
-    if (err) {
-      next(err)
-    } else {
-      res.render('home.ejs', {user: data, beers: beerlist})
-    }
-  }
-
-});
-
-
-
-
-// Delete beer
-
-router.delete('/:id', (req, res, next) => {
-	var id = req.params.id
-
-	db.collection('users').deleteOne({
-    _id: new mongo.ObjectID(id)
-  }, done)
-
-  function done(err) {
-    if (err) {
-      next(err)
-    } else {
-      res.json({status: 'ok'})
-    }
-  }
-});
-
-// get beer details
-
-router.get('/:id', (req, res, next) => {
-  var id = req.params.id
-
-	db.collection('users').findOne({
-	 _id: mongo.ObjectID(id)
- }, done)
-
- function done(err, data) {
-	 if (err) {
-		 next(err)
-	 } else {
-		 res.render('user.ejs', {user: data, beers: beerlist})
-	 }
- }
-});
 
 module.exports = router;
