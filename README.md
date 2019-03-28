@@ -6,8 +6,6 @@
 <h2>Drink. Match. Love</h2>
 </div>
 
-# Drinkers, serious about dating
-
 ## Description
 
 Drinkers is an app where users can find their Soulmates, based on their favourite drinks. Simple add your favourite beers using our Untappd API and find potential matches based on each others beer interests.
