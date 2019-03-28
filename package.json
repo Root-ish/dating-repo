@@ -2,6 +2,9 @@
   "name": "dating-rep",
   "version": "0.0.1",
   "description": "A repo for the app - Drinkers, serious about dating.",
+  "engines": {
+   "ejs": "2.6.1"
+  },
   "main": "index.js",
   "dependencies": {
     "array-find": "^1.0.0",
@@ -43,7 +46,4 @@
     "url": "https://github.com/Root-ish/dating-repo/issues"
   },
   "homepage": "https://github.com/Root-ish/dating-repo#readme",
-  "engines": {
-    "node": "10.x"
-  }
 }
