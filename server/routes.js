@@ -11,7 +11,7 @@ let searchResults = [];
 require('dotenv').config()
 
 var db = null
-var url = 'mongodb://' + process.env.DB_HOST + ':' + process.env.DB_PORT
+var url = process.env.DB
 var user = process.env.DB_USER
 
 mongo.MongoClient.connect(url, {useNewUrlParser: true}, function (err, client) {
