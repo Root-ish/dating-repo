@@ -34,7 +34,10 @@ Drinkers can be installed using two methods. Using the terminal or using the Git
 
 Click on the green button “Clone or Download. Select open in desktop and grab a cup of coffee.
 
-![Clone GUI](https://github.com/Root-ish/dating-repo/blob/master/Dating-repo-install.gif)
+
+<div align="center">
+ <img src="https://github.com/Root-ish/dating-repo/blob/master/Dating-repo-install.gif" alt=Clone GUI width=100% height=auto>
+</div>
 
 Once cloned , open the terminal and run :
 `npm install`
@@ -47,9 +50,9 @@ Browse to the preferred destination folder in the terminal using :
 👯 Clone this repo to your local machine using :
 `git clone https://github.com/Root-ish/dating-repo.git`
 
-
-![Clone gif](https://github.com/Root-ish/dating-repo/blob/master/Screen%20Recording%202019-03-27%20at%2017.17.06.gif)
-
+<div align="center">
+ <img src="https://github.com/Root-ish/dating-repo/blob/master/Screen%20Recording%202019-03-27%20at%2017.17.06.gif" alt=Clone gif width=100% height=auto>
+</div>
 
 And install the app using :
 `npm install`
@@ -60,7 +63,9 @@ To start the server, run the following command :
 
 In the app users can create an account, log-in and search for beers.
 
-![Users states](https://github.com/Root-ish/dating-repo/blob/master/Screen%20Recording%202019-03-28%20at%2002.52.25.gif)
+<div align="center">
+ <img src="https://github.com/Root-ish/dating-repo/blob/master/Screen%20Recording%202019-03-28%20at%2002.52.25.gif" alt=Users states width=100% height=auto>
+</div>
 
 
 ## Build with

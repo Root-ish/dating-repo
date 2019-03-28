@@ -1,7 +1,8 @@
 {
-    "version": 1,
-    "name": "Drinkers, serious about dating",
+    "version": 2,
+    "name": "Dating-repo",
     "builds": [
-        { "src": "index.js", "use": "@now/node" }
+        { "src": "./assets", "use": "@now/static" },
+        { "src": "**/*.js", "use": "@now/node" }
     ]
 }

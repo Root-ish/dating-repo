@@ -1,6 +1,5 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const beerlist = require('./beers')
 const find = require('array-find')
 const router = express.Router()
 const slug = require('slug')
