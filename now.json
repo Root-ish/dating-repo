@@ -1,8 +1,7 @@
 {
-  "name": "Dating-repo"
-},
-{
-  "builds": [
-    { "src": "index.js", "use": "@now/node" }
-  ]
+    "version": 1,
+    "name": "Dating-repo",
+    "builds": [
+        { "src": "index.js", "use": "@now/node" }
+    ]
 }
