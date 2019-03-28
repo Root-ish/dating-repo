@@ -42,12 +42,12 @@ if (!username || !password) {
   return res.status(400).send('Username or password are missing')
 }
 
-if (db.collection('users').find({name: username}) === username) {
+if (db.collection('drinkers').find({name: username}) === username) {
   return res.status(400).send('Username already exist')
 }
 
 else {
-  db.collection('users').insertOne({
+  db.collection('drinkers').insertOne({
     name: username,
     password: password
 }, done)
@@ -76,9 +76,7 @@ router.post('/log-in', (req, res) => {
   const username = req.body.username
   const password = req.body.password
 
-  console.log(password);
-
-  db.collection('users').findOne({
+  db.collection('drinkers').findOne({
     name: username
   }, done);
 
