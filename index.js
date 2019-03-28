@@ -12,7 +12,7 @@ express()
        outputStyle: 'compressed'
      }))
     .use(express.static("assets"))
-    .use('/assets', express.static('assets'))
+    .use('/assets', express.static('./assets'))
     .use(bodyParser.urlencoded({extended: true}))
     .set('view engine', 'ejs')
     .use('views', express.static('view'))
