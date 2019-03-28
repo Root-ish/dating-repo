@@ -11,7 +11,7 @@ express()
        debug: true,
        outputStyle: 'compressed'
      }))
-    .use('/assets', express.static(path.join(__dirname, 'assets')))
+    .use('/assets', express.static('./assets')))
     .use(bodyParser.urlencoded({extended: true}))
     .set('view engine', 'ejs')
     .use('views', express.static('view'))
