@@ -12,7 +12,6 @@ Drinkers is an app where users can find their Soulmates, based on their favourit
 - [Features](#Features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Build with](#Build-with)
 - [Contributing](#)
 - [License](#license)
 
