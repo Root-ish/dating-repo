@@ -16,6 +16,7 @@ Drinkers is an app where users can find their Soulmates, based on their favourit
 - [Contributing](#)
 - [License](#license)
 
+
 ## Features
 - Users can sign-up and log-in on Drinkers,
 - Users can add their favourite beers using a search function through the [API Documentation](https://untappd.com/api/docs)
@@ -24,6 +25,7 @@ Drinkers is an app where users can find their Soulmates, based on their favourit
 
 ## Installation
 Drinkers can be installed using two methods. Using the terminal or using the Github dekstop app ( or an alternative GUI app, such as Gitkraken )
+
 
 ### Option 1 : Github visual tool
 
@@ -36,6 +38,7 @@ Click on the green button “Clone or Download. Select open in desktop and grab 
 
 Once cloned , open the terminal and run :
 `npm install`
+
 
 ### Option 2 : Terminal
 
@@ -52,6 +55,7 @@ Browse to the preferred destination folder in the terminal using :
 And install the app using :
 `npm install`
 
+
 ## Usage
 To start the server, run the following command :
 `npm run start`
@@ -62,22 +66,6 @@ In the app users can create an account, log-in and search for beers.
  <img src="https://github.com/Root-ish/dating-repo/blob/master/Screen%20Recording%202019-03-28%20at%2002.52.25.gif" alt=Users states width=100% height=auto>
 </div>
 
-
-## Build with
-- [Array find - npm](https://www.npmjs.com/package/array-find)
-- [body-parser  -  npm](https://www.npmjs.com/package/body-parser)
-- [camelcase  -  npm](https://www.npmjs.com/package/camelcase)
-- [dotenv  -  npm](https://www.npmjs.com/package/dotenv)
-- [ejs  -  npm](https://www.npmjs.com/package/ejs)
-- [express  -  npm](https://www.npmjs.com/package/express)
-- [express-session  -  npm](https://www.npmjs.com/package/express-session)
-- [mongodb  -  npm](https://www.npmjs.com/package/mongodb)
-- [multer  -  npm](https://www.npmjs.com/package/multer)
-- [node-sass  -  npm](https://www.npmjs.com/package/node-sass)
-- [node-sass-middleware  -  npm](https://www.npmjs.com/package/node-sass-middleware)
-- [npm  -  npm](https://www.npmjs.com/package/npm)
-- [slug  -  npm](https://www.npmjs.com/package/slug)
-- [underscore  -  npm](https://www.npmjs.com/package/underscore)
 
 ## Process
 
