@@ -1,5 +1,5 @@
 <div align="center">
- <img src="https://github.com/Root-ish/dating-repo/blob/master/logo-color.png" alt=“Drinkers logo” width=50% height=auto>
+ <img src="https://github.com/Root-ish/dating-repo/blob/master/repo-images/logo-color.png" alt=“Drinkers logo” width=50% height=auto>
 <h2>Drink. Match. Love</h2>
 </div>
 
@@ -33,7 +33,7 @@ Click on the green button “Clone or Download. Select open in desktop and grab 
 
 
 <div align="center">
- <img src="https://github.com/Root-ish/dating-repo/blob/master/Dating-repo-install.gif" alt=Clone GUI width=100% height=auto>
+ <img src="https://github.com/Root-ish/dating-repo/blob/master/repo-images/Dating-repo-install.gif" alt=Clone GUI width=100% height=auto>
 </div>
 
 Once cloned , open the terminal and run :
@@ -49,7 +49,7 @@ Browse to the preferred destination folder in the terminal using :
 `git clone https://github.com/Root-ish/dating-repo.git`
 
 <div align="center">
- <img src="https://github.com/Root-ish/dating-repo/blob/master/Screen%20Recording%202019-03-27%20at%2017.17.06.gif" alt=Clone gif width=100% height=auto>
+ <img src="https://github.com/Root-ish/dating-repo/blob/master/repo-images/Screen%20Recording%202019-03-27%20at%2017.17.06.gif" alt=Clone gif width=100% height=auto>
 </div>
 
 And install the app using :
@@ -63,7 +63,7 @@ To start the server, run the following command :
 In the app users can create an account, log-in and search for beers.
 
 <div align="center">
- <img src="https://github.com/Root-ish/dating-repo/blob/master/Screen%20Recording%202019-03-28%20at%2002.52.25.gif" alt=Users states width=100% height=auto>
+ <img src="https://github.com/Root-ish/dating-repo/blob/master/repo-images/Screen%20Recording%202019-03-28%20at%2002.52.25.gif" alt=Users states width=100% height=auto>
 </div>
 
 
