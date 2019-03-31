@@ -1,6 +1,6 @@
 function beerSearch(event) {
-  var CLIENTID = 'A0D5D7F766E859E3EF145BD051A3A576D2EA97CF'
-  var CLIENTSECRET = 'EBF811599C0F5914F7F37349041336C86926AC40'
+  let CLIENTID = 'A0D5D7F766E859E3EF145BD051A3A576D2EA97CF'
+  let CLIENTSECRET = 'EBF811599C0F5914F7F37349041336C86926AC40'
 
   fetch('https://api.untappd.com/v4/search/beer?q=' + document.getElementById("searchName").value + '&client_id=' + CLIENTID + '&client_secret=' + CLIENTSECRET , {
     method: 'GET'
@@ -9,7 +9,7 @@ function beerSearch(event) {
   .then(function(data) {
     let Beers = data.response.beers.items
     document.getElementById("beer__search").classList.add("active");
-    for (var i = 0; i < Beers.length; i++) {
+    for (let i = 0; i < Beers.length; i++) {
       // console.log('<li onClick="addBeer(' + Beers[i].beer.bid + ')">' + Beers[i].beer.beer_name + '</li>');
       document.getElementById('beer_results').innerHTML +=
 

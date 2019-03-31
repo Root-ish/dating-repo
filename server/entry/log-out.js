@@ -1,5 +1,6 @@
 const express = require('express')
 const logout = express.Router()
+const session = require('express-session')
 
 // Log-out
 

@@ -9,21 +9,17 @@
 
   <div class="account__container">
     <a href="user/<%= user._id %>">
-    <% if (user.profilePhoto) { %>
-    <img class="account__image"
-      alt
-      src="assets/upload/<%= user.profilePhoto %>"
-    >
-    <% } else {%>
-      <img class="account__image"
-        alt
-        src="assets/images/user.png"
-      >
+      <% if (user.profilePhoto) { %>
+      <img class="account__image" alt src="assets/upload/<%= user.profilePhoto %>">
+      <% } else {%>
+      <img class="account__image" alt src="assets/images/user.png">
       <% } %>
-      </a>
-      <a href="user/<%= user._id %>">
-        <h2 class="account__name"><%= user.name %></h2>
-      </a>
+    </a>
+    <a href="user/<%= user._id %>">
+      <h2 class="account__name">
+        <%= user.name %>
+      </h2>
+    </a>
   </div>
 
   <div class="container">
@@ -34,37 +30,41 @@
 
     <div id="userBeerList" class="userBeerList">
       <% if (user.beerProfile) { %>
-      <% for (var index = 0; index < Object.keys(user.beerProfile).length; index++) {
-        var userBeer = Object.values(user.beerProfile)[index]
+      <% for (let index = 0; index < Object.keys(user.beerProfile).length; index++) {
+        let userBeer = Object.values(user.beerProfile)[index]
         %>
-        <% if (userBeer) { %>
-        <li class="beer">
-          <img class="beer__image" src="<%- userBeer.img %>" alt="<%- userBeer.name %>">
-          <div class="beer__info">
-            <h4 class="info__title"><%= userBeer.name %></h4>
-            <p class="info__text"><%= userBeer.description %></p>
-          </div>
-        </li>
-        <% } else {%>
-
-          <% } %>
-      <% } %>
-        <a class="addbeer__button" href="/add-beer"><button type="button" name="button">Add beer</button></a>
+      <% if (userBeer) { %>
+      <li class="beer">
+        <img class="beer__image" src="<%- userBeer.img %>" alt="<%- userBeer.name %>">
+        <div class="beer__info">
+          <h4 class="info__title">
+            <%= userBeer.name %>
+          </h4>
+          <p class="info__text">
+            <%= userBeer.description %>
+          </p>
+        </div>
+      </li>
       <% } else {%>
-        <a class="addbeer__button" href="/add-beer"><button type="button" name="button">Add your first beer</button></a>
-        <% } %>
+
+      <% } %>
+      <% } %>
+      <a class="addbeer__button" href="/add-beer"><button type="button" name="button">Add beer</button></a>
+      <% } else {%>
+      <a class="addbeer__button" href="/add-beer"><button type="button" name="button">Add your first beer</button></a>
+      <% } %>
 
     </div>
 
 
     <div id="matchesList" class="matches__container">
-        <% if (user.match) { %>
+      <% if (user.match) { %>
 
-          <% } else {%>
-            <li class="match">
-              <p>Start adding beers and swiping</p>
-            </li>
-          <% } %>
+      <% } else {%>
+      <li class="match">
+        <p>Start adding beers and swiping</p>
+      </li>
+      <% } %>
     </div>
 
   </div>
@@ -74,12 +74,12 @@
 <div class="right__panel">
   <% if (user.match) { %>
 
-    <% } else {%>
-      <div class="empty__state__container">
-        <h3 class="empty__text">Start adding beers and swiping</h3>
-        <a class="empty__button" href="/add-beer"><button type="button" name="button">Add beer</button></a>
-      </div>
-    <% } %>
+  <% } else {%>
+  <div class="empty__state__container">
+    <h3 class="empty__text">Start adding beers and swiping</h3>
+    <a class="empty__button" href="/add-beer"><button type="button" name="button">Add beer</button></a>
+  </div>
+  <% } %>
 </div>
 
 
@@ -90,12 +90,7 @@
 
 <nav class="navigation">
   <img class="navigation__image" src="assets/images/logo.png" alt="logo Drinkers">
-  <button class="navigation__button" type="button" name="button"><a href=/log-in>Log in</a></button>
-</nav>
-<div class="body__container">
+  <button class="navigation__button" type="button" name="button"><a href=/log-in>Log in</a> </button> </nav> <div class="body__container">
 
-  <h2 class="container__text">Drink. Match. Love</h2>
-  <button class="container__button" type="button" name="button"><a href=/sign-up>sign-up</a></button>
-
-</div>
-<% } %>
+      <h2 class="container__text">Drink. Match. Love</h2>
+      <button class="container__button" type="button" name="button"><a href=/sign-up>sign-up </a> </button> </div> <% } %>
