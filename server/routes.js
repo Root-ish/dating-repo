@@ -6,12 +6,15 @@ const multer = require('multer')
 const upload = multer({dest: __dirname + '/assets/upload/'})
 const mongo = require('mongodb')
 const session = require('express-session')
+const login = require('./log-in')
+const logform = require('./log-in-form')
+const logout = require('./log-in')
 let searchResults = [];
 
 require('dotenv').config()
 
-var db = null
-var url = process.env.DB
+let db = null
+let url = process.env.DB
 
 mongo.MongoClient.connect(url, {useNewUrlParser: true}, function (err, client) {
   if (err) throw err
@@ -23,6 +26,19 @@ router.use(session({
   saveUninitialized: true,
   secret: process.env.SESSION_SECRET
 }))
+
+
+
+// Log-in form
+
+router.get('/log-in', login)
+
+
+router.post('/log-in', logform)
+
+// Log-out
+
+router.get('/log-out', logout)
 
 
 
@@ -62,52 +78,6 @@ else {
   }
   }
 });
-
-
-// Log-in form
-
-router.get('/log-in', (req, res) => {
-  res.render('log-in.ejs')
-});
-
-// Log-in Post
-
-router.post('/log-in', (req, res) => {
-  const username = req.body.username
-  const password = req.body.password
-
-  db.collection('drinkers').findOne({
-    name: username
-  }, done);
-
-    function done(err, user) {
-      if (err) {
-        console.log(err);
-      } if(user.password === password) {
-        // console.log(user._id);
-        req.session.user = user;
-        res.redirect('/')
-      }
-      else {
-        console.log("Wrong password");
-      }
-    }
-});
-
-
-
-// Log-out
-
-router.get('/log-out', (req, res, next) => {
-    req.session.destroy(function (err) {
-    if (err) {
-      next(err)
-    } else {
-      res.redirect('/')
-    }
-  })
-});
-
 
 
 
