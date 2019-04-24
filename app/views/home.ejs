@@ -1,0 +1,27 @@
+<% include partials/head.ejs %>
+<title>Drinkers</title>
+
+<% if (user) { %>
+
+  <main>
+    <div class="left__panel">
+      <% include partials/left-panel.ejs%>
+    </div>
+
+    <div class="right__panel">
+      <% include partials/beers.ejs%>
+    </div>
+
+  </main>
+
+
+<% } %>
+
+<% if (!user) { %>
+
+<nav class="navigation">
+  <img class="navigation__image" src="/images/logo.png" alt="logo Drinkers">
+  <button class="navigation__button" type="button" name="button"><a href=/log-in>Log in</a> </button> </nav> <div class="body__container">
+
+      <h2 class="container__text">Drink. Match. Love</h2>
+      <button class="container__button" type="button" name="button"><a href=/sign-up>sign-up </a> </button> </div> <% } %>

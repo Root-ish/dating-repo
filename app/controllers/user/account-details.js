@@ -10,16 +10,6 @@ const upload = multer({
 
 require('dotenv').config()
 
-let db = null
-let url = process.env.DataBase
-
-mongo.MongoClient.connect(url, {
-  useNewUrlParser: true
-}, function(err, client) {
-  if (err) throw err
-  db = client.db(process.env.DB_NAME)
-})
-
 // Get account details
 
 account.get('/user/:id', (req, res, next) => {
@@ -54,10 +44,8 @@ accountform.post('/user/:id', upload.single('photo'), (req, res, next) => {
     db.collection('drinkers').updateMany({
       _id: mongo.ObjectID(req.session.user._id)
     }, {
-      $set: {
         name: req.body.name,
         profilePhoto: req.file ? req.file.filename : null,
-      }
     }, {
       upsert: true
     }, done)

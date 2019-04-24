@@ -1,0 +1,25 @@
+<% include partials/head.ejs %>
+<title>Add a new beer <%(user.name)%></title>
+
+<main>
+  <div class="left__panel">
+    <% include partials/left-panel.ejs%>
+  </div>
+
+
+<div class="right__panel">
+
+  <form id="beer__search" action="/search-beer" class="beer__search" method="post">
+      <input type="text" name="beerName" id="searchName">
+      <button type="submit" name="button">search</button>
+  </form>
+
+  <ul id="beer_results">
+
+  </ul>
+
+</div>
+</main>
+
+
+<script type="text/javascript" src="assets/index.js"></script>

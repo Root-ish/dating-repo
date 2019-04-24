@@ -1,22 +1,58 @@
+// Require dependancies
 const express = require('express')
-const sassMiddleware = require('node-sass-middleware')
-const path = require('path');
 const bodyParser = require('body-parser')
-const router = require('./server/routes')
+const router = express.Router()
+const slug = require('slug')
+const mongoose = require("mongoose");
+const session = require('express-session')
+require('dotenv').config()
+
+
+// Require controllers
+const serveHome = require('./app/controllers/serveHome')
+const { login, logform } = require('./app/controllers/entry/log-in')
+const logout = require('./app/controllers/entry/log-out')
+const { signup, signform } = require('./app/controllers/entry/sign-up')
+const { account, accountform } = require('./app/controllers/user/account-details')
+const { beer, beerform } = require('./app/controllers/user/add-beer')
+const { searchBeer } = require('./app/controllers/user/searchBeerHome')
+const notFound = require('./app/controllers/notFound')
+
+
+// Conncet to database
+const uri = process.env.MONGODB_URI;
+mongoose.set("useNewUrlParser", true);
+mongoose.connect(uri);
+
+// Declare session
+const expSession = {
+    resave: false,
+    saveUninitialized: true,
+    secret: process.env.SESSION_SECRET,
+};
 
 express()
-  .use(sassMiddleware({
-    src: __dirname,
-    dest: path.join(__dirname),
-    debug: true,
-    outputStyle: 'compressed'
-  }))
-  .use(express.static("assets"))
-  .use('/assets', express.static('./assets'))
-  .use(bodyParser.urlencoded({
-    extended: true
-  }))
+  .use("/", express.static("app/static"))
+  .use(bodyParser.urlencoded({ extended: true }))
+  .use(session(expSession))
   .set('view engine', 'ejs')
-  .use('views', express.static('view'))
-  .use('/', router)
+  .set("views", "app/views")
+
+
+  .get('/log-in', login)
+  .get('/log-out', logout)
+  .get('/add-beer', beer)
+  .get('/user/:id', account)
+  .get('/sign-up', signup)
+  .get('/', serveHome)
+
+
+  .post('/log-in', logform)
+  .post('/sign-up', signform)
+  .post('/user/:id', accountform)
+  .post('/search-beer', searchBeer)
+  .post('/add-beer', beerform)
+
+  .get('/not-found', notFound)
+
   .listen(process.env.PORT || 8000);
