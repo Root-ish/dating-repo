@@ -15,7 +15,7 @@ function serveHome(req, res, next) {
 async function matchingUsers(req, res, next) {
   try {
     let matchingUsers = [];
-    const userID = '';
+    let userID = '';
 
     if (req.session.user.beers.length > 1) {
 
