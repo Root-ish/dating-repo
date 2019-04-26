@@ -1,5 +1,6 @@
 const express = require('express')
-const mongo = require('mongodb')
+const mongoose = require("mongoose");
+const User = require("../../models/User");
 const session = require('express-session')
 const account = express.Router()
 const accountform = express.Router()
@@ -16,8 +17,8 @@ account.get('/user/:id', (req, res, next) => {
   const id = req.params.id
   if (id.length == 12 || id.length == 24) {
 
-    db.collection('drinkers').findOne({
-      _id: mongo.ObjectID(id)
+    User.findOne({
+      _id: req.session.user._id
     }, done)
 
     function done(err, user) {
@@ -26,7 +27,8 @@ account.get('/user/:id', (req, res, next) => {
         res.redirect('/');
       } else {
         res.render('account.ejs', {
-          user: user
+          user: user,
+          matchList: ''
         })
       }
     }

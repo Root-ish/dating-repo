@@ -52,6 +52,7 @@
           <%= matchList[i].username %> <%= matchList[i].lastName %>
         </h4>
         <ul>
+          <span>Also liked :</span>
           <% for(let j = 0; j < matchList[i].beers.length; j++) { %>
             <li>
               <h5><%= matchList[i].beers[j].beer.name %></h5>

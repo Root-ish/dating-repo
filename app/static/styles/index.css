@@ -135,7 +135,9 @@ main {
 
 .left__panel .container {
   position: relative;
-  height: auto;
+  height: 100%;
+  overflow-y: scroll;
+  margin-bottom: 2rem;
 }
 
 .left__panel .account__container {
@@ -206,7 +208,7 @@ main {
 }
 
 .left__panel .container .userBeerList {
-  height: calc(100% - 40px);
+  height: auto;
   width: 100%;
   display: flex;
   flex-flow: column;
@@ -267,7 +269,8 @@ main {
   align-self: center;
   width: 75%;
   color: #fff;
-  font-weight: 300
+  font-weight: 300;
+  margin-bottom: 3rem;
 }
 
 .left__panel .container .userBeerList .addbeer__button button {
@@ -296,7 +299,7 @@ main {
   transform: translateX(100%);
   transition-duration: 1s;
   position: absolute;
-  top: 100px;
+  top: 200px;
 }
 
 .left__panel .container .matches__container.slideLeft {

@@ -23,6 +23,7 @@ async function logform(req, res) {
         if (data.password === password) {
 
           req.session.user = {
+            _id: data._id,
             username: data.username,
             firstName: data.firstName,
             lastName: data.lastName,

@@ -10,7 +10,8 @@ require('dotenv').config()
 function beer(req, res, next) {
   if (req.session.user) {
     res.render('add-beer.ejs', {
-      user: req.session.user
+      user: req.session.user,
+      matchList: ''
     })
   } else {
     res.redirect('/');

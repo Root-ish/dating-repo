@@ -46,7 +46,6 @@ async function matchingUsers(req, res, next) {
             }
           }
         }
-        console.log(matchingUsers);
         res.render("home", {
           user: req.session.user,
           beerResults: "",
