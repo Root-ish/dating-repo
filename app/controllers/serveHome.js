@@ -15,7 +15,7 @@ function serveHome(req, res, next) {
 async function matchingUsers(req, res, next) {
   try {
     let matchingUsers = [];
-    const userID = '';
+    let userID = '';
 
     if (req.session.user.beers.length > 1) {
 
@@ -37,7 +37,7 @@ async function matchingUsers(req, res, next) {
             for (const k = 0; k < data[j].beers.length; k++) {
               if (_.contains([data[j].beers[k].beer.bid], req.session.user.beers[i].beer.bid) == true) {
 
-                const beerUser = data[j]._id.toString();
+                let beerUser = data[j]._id.toString();
 
                 if (beerUser != userID) {
                   matchingUsers.push(data[j])
