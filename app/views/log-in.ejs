@@ -1,15 +1,30 @@
 <% include partials/head.ejs %>
 <title>Log-in</title>
-<div class="body__container">
-  <form class="form" action=/log-in method=post>
-    <label>
-      Username
-      <input name=username>
-    </label>
-    <label>
-      Password
-      <input name=password type=password>
-    </label>
-    <button>Log in</button>
-  </form>
-</div>
+
+<nav class="navigation">
+  <a href=/>
+    <img class="navigation__image" src="/images/logo.png" alt="logo Drinkers">
+  </a>
+  <button class="navigation__button" type="button" name="button">
+    <a href=/log-in>Log in</a>
+  </button>
+</nav>
+
+<header class="header__container">
+  <div class="header__background--large">
+  </div>
+  <div class="info__container">
+    <form class="form" action=/log-in method=post>
+      <label for="username">Username</label>
+      <input name=username type="text" placeholder="Username">
+      <label for="password">Password</label>
+      <input name=password type=password placeholder="Password">
+      <button>Log in</button>
+    </form>
+    <div class="sign__container">
+      <p>Or create an account</p>
+      <button class="sign__button" type="button" name="button">
+        <a href="/sign-up">Craete account</a>
+      </button>
+    </div>
+</header>

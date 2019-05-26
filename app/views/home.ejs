@@ -5,7 +5,7 @@
 
   <main>
     <div class="left__panel">
-      <% include partials/left-panel.ejs%>
+      <% include partials/sidebar.ejs%>
     </div>
 
     <div class="right__panel">
@@ -19,9 +19,63 @@
 
 <% if (!user) { %>
 
-<nav class="navigation">
-  <img class="navigation__image" src="/images/logo.png" alt="logo Drinkers">
-  <button class="navigation__button" type="button" name="button"><a href=/log-in>Log in</a> </button> </nav> <div class="body__container">
+  <nav class="navigation">
+    <a href=/>
+      <img class="navigation__image" src="/images/logo.png" alt="logo Drinkers">
+    </a>
+    <button class="navigation__button" type="button" name="button">
+      <a href=/log-in>Log in</a>
+    </button>
+  </nav>
 
-      <h2 class="container__text">Drink. Match. Love</h2>
-      <button class="container__button" type="button" name="button"><a href=/sign-up>sign-up </a> </button> </div> <% } %>
+  <header class="header__container">
+    <div class="header__background">
+    </div>
+    <div class="info__container">
+      <h1>Drink. Match. Love</h1>
+      <button class="header__button" type="button" name="button">
+        <a href=/sign-up>Create your account</a>
+      </button>
+    </div>
+  </header>
+
+  <section class="section__container">
+    <h2 class="section__title">Features</h2>
+    <div class="card__container">
+      <div class="info__container">
+        <h3 class="info__title">Desktop Client</h3>
+        <p class="info__text">We developed a unique deskstop client for our services. Making sure you can get the most matches possible.</p>
+      </div>
+      <div class="image__container">
+        <img src="/images/screencap-desktop.png" alt="Screenshot of the desktop app">
+      </div>
+    </div>
+
+    <div class="card__container">
+      <div class="info__container">
+        <h3 class="info__title">Desktop Client</h3>
+        <p class="info__text">We developed a unique deskstop client for our services. Making sure you can get the most matches possible.</p>
+      </div>
+      <div class="image__container">
+        <img src="/images/screencap-desktop.png" alt="Screenshot of the desktop app">
+      </div>
+    </div>
+
+    <div class="card__container">
+      <div class="info__container">
+        <h3 class="info__title">Desktop Client</h3>
+        <p class="info__text">We developed a unique deskstop client for our services. Making sure you can get the most matches possible.</p>
+      </div>
+      <div class="image__container">
+        <img src="/images/screencap-desktop.png" alt="Screenshot of the desktop app">
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer__container">
+    <button class="footer__button" type="button" name="button">
+      <a href=/sign-up>Sign up now</a>
+    </button>
+  </footer>
+
+<% } %>

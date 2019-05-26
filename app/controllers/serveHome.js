@@ -1,21 +1,20 @@
-const mongoose = require("mongoose");
 const User = require("../models/User");
 const _ = require("underscore");
 
 function serveHome(req, res, next) {
   if (!req.session.user) {
-    res.render('home', {
+    res.render("home", {
       user: null
-    })
+    });
   } else {
     matchingUsers(req, res, next);
   }
-};
+}
 
 async function matchingUsers(req, res, next) {
   try {
     let matchingUsers = [];
-    let userID = '';
+    let userID = "";
 
     if (req.session.user.beers.length > 1) {
 
@@ -24,7 +23,7 @@ async function matchingUsers(req, res, next) {
       }, (err, currentUser) => {
         if (err) console.log(err);
 
-        userID = currentUser._id
+        userID = currentUser._id;
       });
 
       await User.find({}, (err, data) => {
@@ -40,7 +39,7 @@ async function matchingUsers(req, res, next) {
                 let beerUser = data[j]._id.toString();
 
                 if (beerUser != userID) {
-                  matchingUsers.push(data[j])
+                  matchingUsers.push(data[j]);
                 }
               }
             }
@@ -50,7 +49,7 @@ async function matchingUsers(req, res, next) {
           user: req.session.user,
           beerResults: "",
           matchList: matchingUsers
-        })
+        });
       });
     }
   } catch (error) {

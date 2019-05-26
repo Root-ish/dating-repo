@@ -1,25 +1,28 @@
-<!doctype html>
-<link rel=stylesheet href=assets/styles/index.css>
+<% include partials/head.ejs %>
 <title>Sign-up</title>
-<div class="body__container">
-  <h1>sign-up</h1>
-  <form class="form" action=/sign-up method=post>
-    <label>
-      Username
-      <input name=username>
-    </label>
-    <label>
-      Password
-      <input name=password type=password>
-    </label>
-    <label>
-      firstname
-      <input name=firstName type=text>
-    </label>
-    <label>
-      lastname
-      <input name=lastName type=text>
-    </label>
-    <button>Next</button>
-  </form>
-</div>
+
+<nav class="navigation">
+  <a href=/>
+    <img class="navigation__image" src="/images/logo.png" alt="logo Drinkers">
+  </a>
+  <button class="navigation__button" type="button" name="button">
+    <a href=/log-in>Log in</a>
+  </button>
+</nav>
+
+<header class="header__container">
+  <div class="header__background--large">
+  </div>
+  <div class="info__container">
+    <form class="form" action=/sign-up method=post>
+      <label for="username">Username</label>
+      <input name=username type="text" placeholder="Username">
+      <label for="password">Password</label>
+      <input name=password type=password placeholder="Password">
+      <label for="firstname">Firstname</label>
+      <input type="text" name="firstName" placeholder="Henk">
+      <label for="lastName"></label>
+      <input type="text" name="lastName" placeholder="Joe">
+      <button>Create Account</button>
+    </form>
+</header>
