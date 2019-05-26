@@ -1,0 +1,101 @@
+/* Sidebar styling */
+
+
+.left__panel {
+  height: 100%;
+  width: 25%;
+  min-width: 325px;
+  flex-basis: 25%;
+  background-color: #fff;
+}
+
+.left__panel .user__container {
+  height: 25%;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 5%;
+}
+
+.user__container .user__image {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  border: 1px #fff solid
+}
+
+.user__container a {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.user__container .user__name {
+  margin: 0;
+  margin-left: 1rem;
+  color: #1745ac;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400
+}
+
+.user__container .user__username {
+  margin: 0;
+  margin-left: 1rem;
+  color: #999;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400
+}
+
+.left__panel .routes__container {
+  width: 100%;
+  height: 75%;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+}
+
+.routes__container .routes__list {
+  width: 100%;
+  height: 100%;
+  list-style: none;
+  padding: 0;
+}
+
+.routes__list a {
+  color: #999;
+  font-size: 1.2rem;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.routes__list li {
+  position: relative;
+  padding-left: 40px;
+}
+
+.routes__list a:hover {
+  color: #1745ac;
+  box-shadow: 0px 2px 14px 0px rgba(0, 0, 0, 0.08);
+}
+
+.route {
+  width: 100%;
+  border-left: 5px solid transparent;
+  transition-duration: .25s;
+}
+
+.route:hover {
+  border-left: 5px solid #1745ac;
+}
+
+.routes__container button {
+  margin-left: auto;
+  margin-right: auto;
+}

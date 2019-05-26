@@ -1,30 +1,25 @@
-<% if (beerResults) { %>
-  <% for (let i = 0; i < beerResults.length; i++) { %>
-  <article class="beerResults">
-    <h2>
-      <%= beerResults[i].beer.beer_name %>
-    </h2>
-    <img src="<%- beerResults[i].beer.beer_label %>" alt="<%- beerResults[i].beer.beer_name %>">
-    <p>
-      <%= beerResults[i].beer.beer_description %>
-    </p>
+<section class="recent__container" >
+  <h2 class="recent__title">Recent beers</h2>
 
-    <form action="/add-beer" method="post">
-      <input class="invisible" type="text" name="beerName" value="<%- beerResults[i].beer.beer_name %>">
-      <input class="invisible" type="text" name="beerBid" value="<%- beerResults[i].beer.bid %>">
-      <input class="invisible" type="text" name="beerDescription" value="<%- beerResults[i].beer.beer_description %>">
-      <input class="invisible" type="text" name="beerImg" value="<%- beerResults[i].beer.beer_label %>">
-      <input class="invisible" type="text" name="brewery" value="<%- beerResults[i].brewery.brewery_name %>">
-      <button type="submit" name="button">Add
-        <%- beerResults[i].beer.beer_name %></button>
-    </form>
-  </article>
+  <div class="beers__list">
+
+  <% if (user.beers.length > 0) { %>
+    <% for(let i = 0; i < 4; i++) { %>
+      <div class="beer__container" style="background-image: url(<%- user.beers[i].beer.img %>)">
+        <div class="beer__info">
+          <h4 class="info__title">
+            <%= user.beers[i].beer.name %>
+          </h4>
+          <p class="info__text">
+            <%= user.beers[i].beer.bid %>
+          </p>
+        </div>
+      </div>
+    <% } %>
   <% } %>
-<% } else if (user.match) {%>
-  
-<% } else {%>
-<div class="empty__state__container">
-  <h3 class="empty__text">Start adding beers and swiping</h3>
-  <a class="empty__button" href="/add-beer"><button type="button" name="button">Add beer</button></a>
-</div>
-<% } %>
+
+    </div>
+
+
+
+</section>

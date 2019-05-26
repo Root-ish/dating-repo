@@ -1,73 +1,26 @@
-<div class="account__container">
+<div class="user__container">
   <a href="<%= user._id %>">
     <% if (user.profilePhoto) { %>
-    <img class="account__image" alt src="/upload/<%= user.profilePhoto %>">
+    <img class="user__image" alt src="/upload/<%= user.profilePhoto %>">
     <% } else {%>
-    <img class="account__image" alt src="/images/user.png">
+    <img class="user__image" alt src="/images/user.png">
     <% } %>
   </a>
   <a href="<%= user._id %>">
-    <h2 class="account__name">
-      <%= user.username %>
+    <h2 class="user__name">
+      <%= user.username + ' ' + user.lastName%>
     </h2>
+    <span class="user__username"><%= user.username %></span>
   </a>
 </div>
 
-<div class="container">
-  <ul class="switcher__container">
-    <li id="switch__titleBeers" onclick="slideleft()" class="switch__title active">Beers you like</li>
-    <li id="switch__titleMessage" onclick="slideright()" class="switch__title">Messages</li>
+<div class="routes__container">
+  <ul class="routes__list">
+    <a class="route" href="/beers"><li>Beers</li></a>
+    <a class="route" href="/matches"><li>Matches</li></a>
+    <a class="route" href="/<%= user._id %>"><li>Account</li></a>
   </ul>
-
-  <div id="userBeerList" class="userBeerList">
-
-    <% if (user.beers.length > 0) { %>
-    <% for(let i = 0; i < user.beers.length; i++) { %>
-    <li class="beer">
-      <img class="beer__image" src="<%- user.beers[i].beer.img %>" alt="<%- user.beers[i].beer.name %>">
-
-      <div class="beer__info">
-        <h4 class="info__title">
-          <%= user.beers[i].beer.name %>
-        </h4>
-        <p class="info__text">
-          <%= user.beers[i].beer.description %>
-        </p>
-      </div>
-    </li>
-    <% } %>
-    <a class="addbeer__button" href="/add-beer"><button type="button" name="button">Add beer</button></a>
-    <% } else {%>
-    <a class="addbeer__button" href="/add-beer"><button type="button" name="button">Add your first beer</button></a>
-    <% } %>
-
-  </div>
-
-  <div id="matchesList" class="matches__container">
-  <% if (matchList.length > 0) { %>
-    <% for(let i = 0; i < matchList.length; i++) { %>
-    <li class="user">
-      <div class="user__info">
-        <h4 class="user__name">
-          <%= matchList[i].username %> <%= matchList[i].lastName %>
-        </h4>
-        <ul>
-          <span>Also liked :</span>
-          <% for(let j = 0; j < matchList[i].beers.length; j++) { %>
-            <li>
-              <h5><%= matchList[i].beers[j].beer.name %></h5>
-              <img class="beer__image" src="<%- matchList[i].beers[j].beer.img %>" alt="<%- matchList[i].beers[j].beer.name %>">
-            </li>
-          <% } %>
-        </ul>
-      </div>
-    </li>
-    <% } %>
-  <% } else {%>
-  <li class="match">
-    <p>Start adding beers and swiping</p>
-  </li>
-  <% } %>
-</div>
-
+  <button class="primary__button" type="button" name="button">
+    <a href="/add-beer">add beer</a>
+  </button>
 </div>

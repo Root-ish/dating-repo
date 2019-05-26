@@ -1,0 +1,37 @@
+/* Navigation styling */
+
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 50px;
+  background-color: #1745ac;
+  background: -moz-linear-gradient(right, #1745ac 0%, #3c89ff 100%);
+  background: -webkit-linear-gradient(right, #1745ac 0%,#3c89ff 100%);
+  background: linear-gradient(to left, #1745ac 0%,#3c89ff 100%);
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 50px;
+  z-index: 3;
+}
+
+.navigation .navigation__image {
+  height: 30px;
+  width: auto
+}
+
+.navigation .navigation__button {
+  padding: .5rem 3rem;
+  text-transform: uppercase;
+  border: none;
+  font-size: 1rem;
+  color: #fff;
+  border-radius: 50px;
+  background: #fff
+}
+
+.navigation .navigation__button a {
+  color: #000
+}

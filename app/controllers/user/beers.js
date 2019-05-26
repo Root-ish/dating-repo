@@ -1,9 +1,9 @@
-const User = require("../models/User");
+const User = require("../../models/User");
 const _ = require("underscore");
 
 function serveHome(req, res, next) {
   if (!req.session.user) {
-    res.render("home", {
+    res.render("beers", {
       user: null
     });
   } else {
@@ -45,7 +45,7 @@ async function matchingUsers(req, res, next) {
             }
           }
         }
-        res.render("home", {
+        res.render("beers", {
           user: req.session.user,
           beerResults: "",
           matchList: matchingUsers,

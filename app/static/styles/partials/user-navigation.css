@@ -1,0 +1,30 @@
+.user__navigation {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 5px 15px;
+  background: #1745ac;
+  background: -moz-linear-gradient(left, #1745ac 0%, #3c89ff 100%);
+  background: -webkit-linear-gradient(left, #1745ac 0%, #3c89ff 100%);
+  background: linear-gradient(to right, #1745ac 0%, #3c89ff 100%);
+  color: #fff;
+  box-shadow: 0 1px 10px 0 rgba(0, 17, 25, 0.4);
+  border-radius: 0 0 10px 10px
+}
+
+.user__navigation .account__image {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 1px #fff solid
+}
+
+.user__navigation .account__name {
+  margin: 0;
+  margin-left: 1rem;
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400
+}
