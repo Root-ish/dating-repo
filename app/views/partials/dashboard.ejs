@@ -1,0 +1,49 @@
+<header class="header__container--small">
+  <div class="header__background--small">
+  </div>
+</header>
+
+
+<section class="recent__container" >
+  <h2 class="recent__title">Recent beers</h2>
+
+  <div class="beers__list">
+
+  <% if (user.beers.length > 0) { %>
+    <% for(let i = user.beers.length - 1; i >= user.beers.length - 2; i--) { %>
+      <div class="beer__container" style="background-image: url(<%- user.beers[i].beer.img %>)">
+        <div class="beer__info">
+          <h4 class="info__title">
+            <%= user.beers[i].beer.name %>
+          </h4>
+          <p class="info__text">
+            <%= user.beers[i].beer.bid %>
+          </p>
+        </div>
+      </div>
+    <% } %>
+  <% } %>
+
+    </div>
+</section>
+
+<section id="matchesList" class="matches__container--short">
+  <h2 class="recent__title">Recent matches</h2>
+  <ul>
+  <% if (matchList.length > 0) { %>
+    <% for(let i = 0; i < matchList.length; i++) { %>
+    <li class="user">
+      <div class="user__info">
+        <h4 class="user__name">
+          <%= matchList[i].firstName %> <%= matchList[i].lastName %>
+        </h4>
+      </div>
+    </li>
+    <% } %>
+  <% } else {%>
+  <li class="match">
+    <p>Start adding beers and swiping</p>
+  </li>
+  <% } %>
+  </ul>
+</section>

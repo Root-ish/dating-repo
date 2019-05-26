@@ -1,10 +1,49 @@
+<header class="header__container--small">
+  <div class="header__background--small">
+  </div>
+</header>
+
+<section class="search__container">
+  <h2 class="recent__title">Search beers</h2>
+  <form id="beer__search" action="/search-beer" class="beer__search" method="post">
+      <input type="text" name="beerName" id="searchName">
+      <button type="submit" name="button">search</button>
+  </form>
+</section>
+
+<% if (beerResults) { %>
+<section class="beerresult__container">
+  <ul id="beer_results" class="beerResult__list">
+      <% for (let i = 0; i < beerResults.length; i++) { %>
+      <article class="beerResults">
+        <h2>
+          <%= beerResults[i].beer.beer_name %>
+        </h2>
+        <img src="<%- beerResults[i].beer.beer_label %>" alt="<%- beerResults[i].beer.beer_name %>">
+
+        <form action="/add-beer" method="post">
+          <input class="invisible" type="text" name="beerName" value="<%- beerResults[i].beer.beer_name %>">
+          <input class="invisible" type="text" name="beerBid" value="<%- beerResults[i].beer.bid %>">
+          <input class="invisible" type="text" name="beerDescription" value="<%- beerResults[i].beer.beer_description %>">
+          <input class="invisible" type="text" name="beerImg" value="<%- beerResults[i].beer.beer_label %>">
+          <input class="invisible" type="text" name="brewery" value="<%- beerResults[i].brewery.brewery_name %>">
+          <button type="submit" name="button">Add
+            <%- beerResults[i].beer.beer_name %></button>
+        </form>
+      </article>
+      <% } %>
+  </ul>
+</section>
+<% } %>
+
+
 <section class="recent__container" >
   <h2 class="recent__title">Recent beers</h2>
 
   <div class="beers__list">
 
   <% if (user.beers.length > 0) { %>
-    <% for(let i = 0; i < 4; i++) { %>
+    <% for(let i = user.beers.length - 1; i >= 0; i--) { %>
       <div class="beer__container" style="background-image: url(<%- user.beers[i].beer.img %>)">
         <div class="beer__info">
           <h4 class="info__title">
@@ -19,7 +58,4 @@
   <% } %>
 
     </div>
-
-
-
 </section>

@@ -1,0 +1,33 @@
+<header class="header__container--small">
+  <div class="header__background--small">
+  </div>
+</header>
+
+<section id="matchesList" class="matches__container">
+  <ul>
+  <% if (matchList.length > 0) { %>
+    <% for(let i = 0; i < matchList.length; i++) { %>
+    <li class="user">
+      <div class="user__info">
+        <h4 class="user__name">
+          <%= matchList[i].firstName %> <%= matchList[i].lastName %>
+        </h4>
+        <ul>
+          <span>Also liked :</span>
+          <% for(let j = 0; j < matchList[i].beers.length; j++) { %>
+            <li>
+              <h5><%= matchList[i].beers[j].beer.name %></h5>
+              <img class="beer__image" src="<%- matchList[i].beers[j].beer.img %>" alt="<%- matchList[i].beers[j].beer.name %>">
+            </li>
+          <% } %>
+        </ul>
+      </div>
+    </li>
+    <% } %>
+  <% } else {%>
+  <li class="match">
+    <p>Start adding beers and swiping</p>
+  </li>
+  <% } %>
+  </ul>
+</section>

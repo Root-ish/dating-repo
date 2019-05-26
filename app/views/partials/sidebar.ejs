@@ -1,12 +1,12 @@
 <div class="user__container">
-  <a href="<%= user._id %>">
+  <a href="/">
     <% if (user.profilePhoto) { %>
     <img class="user__image" alt src="/upload/<%= user.profilePhoto %>">
     <% } else {%>
     <img class="user__image" alt src="/images/user.png">
     <% } %>
   </a>
-  <a href="<%= user._id %>">
+  <a href="/">
     <h2 class="user__name">
       <%= user.username + ' ' + user.lastName%>
     </h2>
@@ -18,9 +18,9 @@
   <ul class="routes__list">
     <a class="route" href="/beers"><li>Beers</li></a>
     <a class="route" href="/matches"><li>Matches</li></a>
-    <a class="route" href="/<%= user._id %>"><li>Account</li></a>
+    <a class="route" href="/user/<%= user._id %>"><li>Account</li></a>
   </ul>
   <button class="primary__button" type="button" name="button">
-    <a href="/add-beer">add beer</a>
+    <a href="/beers">add beer</a>
   </button>
 </div>

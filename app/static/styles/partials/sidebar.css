@@ -3,9 +3,7 @@
 
 .left__panel {
   height: 100%;
-  width: 25%;
-  min-width: 325px;
-  flex-basis: 25%;
+  width: 25vw;
   background-color: #fff;
 }
 

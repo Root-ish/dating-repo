@@ -3,6 +3,7 @@
 @import "./partials/navigation.css";
 @import "./partials/sidebar.css";
 @import "./partials/beers.css";
+@import "./partials/matche.css";
 
 
 .primary__button {
@@ -30,6 +31,19 @@
   margin-bottom: 4rem;
 }
 
+.header__container--small {
+  z-index: 1;
+  width: 75vw;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  height: 50px;
+  margin-bottom: 4rem;
+}
+
 .header__background {
   display: flex;
   flex-direction: column;
@@ -37,7 +51,7 @@
   align-items: center;
   position: absolute;
   width: 100vw;
-  height: 70vh;
+  height: 80vh;
   box-sizing: border-box;
   padding: 48px 48px 32px;
   overflow: hidden;
@@ -52,6 +66,35 @@
   z-index: 0;
   box-shadow: 0px 2px 14px 0px rgba(0, 0, 0, 0.08);
   animation: headerAnimationSmall 1s forwards ;
+  -webkit-transition-timing-function: cubic-bezier(0.135, 0.545, 0.915, 0.525);
+   -moz-transition-timing-function: cubic-bezier(0.135, 0.545, 0.915, 0.525);
+     -o-transition-timing-function: cubic-bezier(0.135, 0.545, 0.915, 0.525);
+        transition-timing-function: cubic-bezier(0.135, 0.545, 0.915, 0.525);
+}
+
+
+.header__background--small {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 10vh;
+  box-sizing: border-box;
+  padding: 0;
+  overflow: hidden;
+  -webkit-transform: skewY(0deg);
+  transform: skewY(0deg);
+  -webkit-transform-origin: 100%;
+  transform-origin: 100%;
+  background-color: #1745ac;
+  background: -moz-linear-gradient(right, #1745ac 0%, #3c89ff 100%);
+  background: -webkit-linear-gradient(right, #1745ac 0%,#3c89ff 100%);
+  background: linear-gradient(to left, #1745ac 0%,#3c89ff 100%);
+  z-index: 0;
+  box-shadow: 0px 2px 14px 0px rgba(0, 0, 0, 0.08);
+  animation: headerAnimationTiny 1s forwards ;
   -webkit-transition-timing-function: cubic-bezier(0.135, 0.545, 0.915, 0.525);
    -moz-transition-timing-function: cubic-bezier(0.135, 0.545, 0.915, 0.525);
      -o-transition-timing-function: cubic-bezier(0.135, 0.545, 0.915, 0.525);
@@ -351,35 +394,4 @@
 
 .right__panel .empty__state__container button:hover {
   box-shadow: 0 0 15px 0 rgba(129, 129, 129, 0.22)
-}
-
-.beer__search {
-  position: absolute;
-  width: 50%;
-  top: 50%;
-  left: calc(100% / 3);
-  transform: translateX(calc(-100% / 3)) translateY(-50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  transition-duration: .5s
-}
-
-.beer__search.active {
-  position: absolute;
-  width: 50%;
-  top: 1rem;
-  left: calc(100% / 3);
-  transform: translateX(calc(-100% / 3))
-}
-
-.beerResults{
-  width: 200px;
-  height: 400px;
-  margin-right: 2rem;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: center;
 }

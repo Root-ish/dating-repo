@@ -12,8 +12,9 @@ const { login, logform } = require("./app/controllers/entry/log-in");
 const logout = require("./app/controllers/entry/log-out");
 const { signup, signform } = require("./app/controllers/entry/sign-up");
 const { account, accountform } = require("./app/controllers/user/account-details");
-const { beer, beerform } = require("./app/controllers/user/add-beer");
+const { beerform } = require("./app/controllers/user/add-beer");
 const beers = require("./app/controllers/user/beers");
+const matches = require("./app/controllers/user/matches");
 const { searchBeer } = require("./app/controllers/user/searchBeerHome");
 const notFound = require("./app/controllers/notFound");
 
@@ -22,6 +23,7 @@ const notFound = require("./app/controllers/notFound");
 const uri = process.env.MONGODB_URI;
 mongoose.set("useNewUrlParser", true);
 mongoose.connect(uri);
+
 
 // Declare session
 const expSession = {
@@ -40,11 +42,11 @@ express()
 
   .get("/log-in", login)
   .get("/log-out", logout)
-  .get("/add-beer", beer)
   .get("/user/:id", account)
   .get("/sign-up", signup)
   .get("/", serveHome)
   .get("/beers", beers)
+  .get("/matches", matches)
 
 
   .post("/log-in", logform)
