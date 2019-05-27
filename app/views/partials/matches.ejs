@@ -5,16 +5,16 @@
 
 <section id="matchesList" class="matches__container">
   <ul>
-  <% if (matchList.length > 0) { %>
+  <% if (matchList.length > 30) { %>
     <% for(let i = 0; i < matchList.length; i++) { %>
     <li class="user">
       <div class="user__container">
-        <div class="user__info">
+        <a href="/user/<%= matchList[i].id %>" class="user__info">
           <img src="<%= matchList[i].image %>" alt="<%= matchList[i].firstName %>">
           <h4 class="user__name">
             <%= matchList[i].firstName %> <%= matchList[i].lastName %>
           </h4>
-        </div>
+        </a>
         <ul>
           <span>Also liked :</span>
           <% for(let j = 0; j < matchList[i].beers.length; j++) { %>
@@ -28,8 +28,11 @@
     </li>
     <% } %>
   <% } else {%>
-  <li class="match">
+  <li class="match__empty">
     <p>Start adding beers and swiping</p>
+    <button class="primary__button" type="button" name="button">
+      <a href="/beers">add beer</a>
+    </button>
   </li>
   <% } %>
   </ul>

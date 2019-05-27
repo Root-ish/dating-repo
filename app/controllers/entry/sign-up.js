@@ -1,30 +1,34 @@
-const express = require('express')
 const mongoose = require("mongoose");
 const User = require("../../models/User");
-const session = require('express-session')
 
-require('dotenv').config()
+require("dotenv").config();
 
 // Sign-up form
 
 function signup(req, res) {
-  res.render('sign-up.ejs')
-};
+  res.render("sign-up.ejs");
+}
 
 // Post sign-up form
 
-function signform(req, res, next) {
-  const { username, password, firstName, lastName } = req.body
-  const newUser = new User({
-    _id: new mongoose.Types.ObjectId(),
-    username: username,
-    password: password,
-    firstName: firstName,
-    lastName: lastName,
-    beers: []
-  });
+async function signform(req, res, next) {
+  try {
 
-  User.create(newUser);
+    const { username, password, firstName, lastName } = req.body;
+    const newUser = new User({
+      _id: new mongoose.Types.ObjectId(),
+      username: username,
+      password: password,
+      firstName: firstName,
+      lastName: lastName,
+      beers: []
+    });
+
+    User.create(newUser);
+
+  }  catch (error) {
+    console.log(error);
+  }
 
   setSession();
 
@@ -42,8 +46,8 @@ function signform(req, res, next) {
       }
   }
 
-  res.redirect('/')
-};
+  res.redirect("/beers");
+}
 
 module.exports = {
   signup,

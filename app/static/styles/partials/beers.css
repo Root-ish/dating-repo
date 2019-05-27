@@ -5,13 +5,12 @@
   height: 100%;
   background-color: #f5f7fa;
   border-left: 1px solid #e5e9ec;
-  padding: 2rem;
   display: flex;
   flex-flow: column;
   align-items: center;
   justify-content: flex-start;
   overflow-y: scroll;
-  padding: 4rem 0;
+  padding: 4rem 2rem;
 }
 
 .recent__container {
