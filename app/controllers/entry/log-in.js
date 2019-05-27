@@ -1,19 +1,16 @@
-const express = require('express')
-const mongoose = require("mongoose");
 const User = require("../../models/User");
-const session = require('express-session')
 
-require('dotenv').config()
+require("dotenv").config();
 
 // Log-in form
 
 function login(req, res) {
-  res.render('log-in.ejs')
+  res.render("log-in.ejs");
 }
 
 async function logform(req, res) {
   try {
-    const { username, password } = req.body
+    const { username, password } = req.body;
 
     await User.findOne({
         username: username
@@ -27,9 +24,10 @@ async function logform(req, res) {
             username: data.username,
             firstName: data.firstName,
             lastName: data.lastName,
-            beers: data.beers
+            beers: data.beers,
+            image: data.image
           };
-          res.redirect('/')
+          res.redirect("/");
 
         } else {
           console.log("Wrong password");

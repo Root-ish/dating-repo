@@ -8,10 +8,13 @@
   <% if (matchList.length > 0) { %>
     <% for(let i = 0; i < matchList.length; i++) { %>
     <li class="user">
-      <div class="user__info">
-        <h4 class="user__name">
-          <%= matchList[i].firstName %> <%= matchList[i].lastName %>
-        </h4>
+      <div class="user__container">
+        <div class="user__info">
+          <img src="<%= matchList[i].image %>" alt="<%= matchList[i].firstName %>">
+          <h4 class="user__name">
+            <%= matchList[i].firstName %> <%= matchList[i].lastName %>
+          </h4>
+        </div>
         <ul>
           <span>Also liked :</span>
           <% for(let j = 0; j < matchList[i].beers.length; j++) { %>

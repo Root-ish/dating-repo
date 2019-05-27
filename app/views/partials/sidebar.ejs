@@ -1,7 +1,7 @@
 <div class="user__container">
   <a href="/">
-    <% if (user.profilePhoto) { %>
-    <img class="user__image" alt src="/upload/<%= user.profilePhoto %>">
+    <% if (user.image) { %>
+    <img class="user__image" alt src="<%= user.image %>">
     <% } else {%>
     <img class="user__image" alt src="/images/user.png">
     <% } %>
