@@ -8,7 +8,7 @@ function login(req, res) {
   res.render("log-in.ejs");
 }
 
-async function logform(req, res) {
+async function logform(req, res, next) {
   try {
     const { username, password } = req.body;
 
