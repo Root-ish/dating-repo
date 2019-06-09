@@ -11,8 +11,7 @@ function signup(req, res) {
 
 // Post sign-up form
 
-async function signform(req, res, next) {
-  try {
+function signform(req, res, next) {
 
     const { username, password, firstName, lastName } = req.body;
     const newUser = new User({
@@ -24,27 +23,24 @@ async function signform(req, res, next) {
       beers: []
     });
 
-    User.create(newUser);
+    signUpAndSet();
 
-  }  catch (error) {
-    console.log(error);
-  }
+    async function signUpAndSet() {
+      try {
 
-  setSession();
+        User.create(newUser);
 
-  function setSession(error) {
-    if (error) {
-        next(error);
-    } else {
-      const {username, firstName, lastName} = req.body;
         req.session.user = {
           username: username,
           firstName: firstName,
           lastName: lastName,
           beers: []
         };
+
+      } catch (error) {
+        next(error);
       }
-  }
+    }
 
   res.redirect("/beers");
 }

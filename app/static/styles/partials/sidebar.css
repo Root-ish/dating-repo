@@ -5,46 +5,51 @@
   height: 100%;
   width: 25vw;
   background-color: #fff;
+  border-right: solid 1px #EEEFF3;
 }
 
 .left__panel .user__container {
-  height: 25%;
+  height: 30%;
   width: 100%;
   display: flex;
   flex-flow: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-evenly;
   padding: 5%;
+  padding-left: 1rem;
+  margin-top: 2rem;
 }
 
 .user__container .user__image {
-  height: 100px;
-  width: 100px;
+  height: 75px;
+  width: 75px;
   border-radius: 50%;
-  border: 1px #fff solid
+  border: 1px #fff solid;
+  margin-bottom: 2rem;
 }
 
 .user__container a {
   display: flex;
   flex-flow: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  margin-left: 20px;
 }
 
 .user__container .user__name {
   margin: 0;
-  margin-left: 1rem;
-  color: #1745ac;
+  color: #666;
+  margin-bottom: 1rem;
   font-family: 'Lato', sans-serif;
-  font-weight: 400
+  font-weight: 500;
+  font-size: 1.4rem;
 }
 
 .user__container .user__username {
   margin: 0;
-  margin-left: 1rem;
   color: #999;
   font-family: 'Lato', sans-serif;
-  font-weight: 400
+  font-weight: 500
 }
 
 .left__panel .routes__container {
@@ -64,9 +69,9 @@
 
 .routes__list a {
   color: #999;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-family: 'Lato', sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   display: flex;
   align-items: center;
   padding: 1rem;
@@ -75,12 +80,7 @@
 
 .routes__list li {
   position: relative;
-  padding-left: 40px;
-}
-
-.routes__list a:hover {
-  color: #1745ac;
-  box-shadow: 0px 2px 14px 0px rgba(0, 0, 0, 0.08);
+  padding-left: 20px;
 }
 
 .route {
@@ -89,8 +89,25 @@
   transition-duration: .25s;
 }
 
+.route.active {
+  border-left: 5px solid #666;
+  color: #666;
+}
+
+.route.active svg g g{
+  stroke: #666;
+}
+
+.route.active svg g g g path{
+  fill: #666;
+}
+
+.route svg {
+  margin-right: 20px;
+}
+
 .route:hover {
-  border-left: 5px solid #1745ac;
+  border-left: 5px solid #999;
 }
 
 .routes__container button {

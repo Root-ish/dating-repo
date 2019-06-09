@@ -14,9 +14,9 @@ async function searchBeer(req, res, next) {
 
     if (beerValue.length > 1) {
 
-      const beerResults = await fetch('https://api.untappd.com/v4/search/beer?q=' + beerValue +
-        '&client_id=' + process.env.CLIENTID +
-        '&client_secret=' + process.env.CLIENTSECRET
+      const beerResults = await fetch("https://api.untappd.com/v4/search/beer?q=" + beerValue +
+        "&client_id=" + process.env.CLIENTID +
+        "&client_secret=" + process.env.CLIENTSECRET
       );
       const beerObjects = await beerResults.json();
       const beerList = beerObjects.response.beers.items;
@@ -28,7 +28,8 @@ async function searchBeer(req, res, next) {
       res.status(200).render("beers", {
         user: req.session.user,
         beerResults: beerList,
-        matchList: ''
+        beerSearch: beerValue,
+        matchList: ""
       });
     }
   } catch (error) {
