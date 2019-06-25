@@ -1,6 +1,47 @@
+<% if (user.beers.length == 0) { %>
+<div class="zero__state">
+  <section class="search__container">
+    <form id="beer__search" action="/search-beer" class="beer__search" method="post">
+        <input type="text" name="beerName" id="searchName" placeholder="Search for a beer">
+        <button type="submit" name="button">Search</button>
+    </form>
+  </section>
+  <% if (beerResults) { %>
+  <section class="beerresult__container">
+    <ul id="beer_results" class="beerResult__list">
+        <% for (let i = 0; i < beerResults.length; i++) { %>
+        <article class="beerResults">
+          <img src="<%- beerResults[i].beer.beer_label %>" alt="<%- beerResults[i].beer.beer_name %>">
+          <h2>
+            <%= beerResults[i].beer.beer_name %>
+          </h2>
+          <p><%- beerResults[i].beer.beer_description %></p>
+
+          <form action="/add-beer" method="post">
+            <input class="invisible" type="text" name="beerName" value="<%- beerResults[i].beer.beer_name %>">
+            <input class="invisible" type="text" name="beerBid" value="<%- beerResults[i].beer.bid %>">
+            <input class="invisible" type="text" name="beerDescription" value="<%- beerResults[i].beer.beer_description %>">
+            <input class="invisible" type="text" name="beerImg" value="<%- beerResults[i].beer.beer_label %>">
+            <input class="invisible" type="text" name="brewery" value="<%- beerResults[i].brewery.brewery_name %>">
+            <button type="submit" name="button">Add
+              <%- beerResults[i].beer.beer_name %></button>
+          </form>
+        </article>
+        <% } %>
+    </ul>
+  </section>
+  <% } %>
+  <div class="zero--beer">
+    <div class="curved__line"></div>
+    <h2>Start by adding your favorite beer!</h2>
+  </div>
+</div>
+
+<% } else { %>
+
 <section class="search__container">
   <form id="beer__search" action="/search-beer" class="beer__search" method="post">
-      <input type="text" name="beerName" id="searchName" placeholder="Search for a beer">
+      <input type="text" name="beerName" id="searchName" placeholder="Search for a beer" value="<%= beerSearch %>">
       <button type="submit" name="button">Search</button>
   </form>
 </section>
@@ -39,7 +80,7 @@
   <div class="beers__list">
 
   <% if (user.beers.length > 0) { %>
-    <% for(let i = user.beers.length - 1; i >= user.beers.length - 4; i--) { %>
+      <% for(let i = 0; i < user.beers.length; i++) { %>
       <div class="beer__container" style="background-image: url(<%- user.beers[i].beer.img %>)">
         <div class="beer__info">
           <h4 class="info__title">
@@ -55,3 +96,6 @@
 
     </div>
 </section>
+
+<% } %>
+<!-- for(let i = user.beers.length - 1; i = user.beers.length - 4; i--) {  -->

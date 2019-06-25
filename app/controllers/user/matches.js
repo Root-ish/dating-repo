@@ -16,7 +16,7 @@ async function matchingUsers(req, res, next) {
     let matchingUsers = [];
     let userID = "";
 
-    if (req.session.user.beers.length > 1) {
+    if (req.session.user.beers.length > 0) {
 
       await User.findOne({
         username: req.session.user.username
@@ -50,6 +50,12 @@ async function matchingUsers(req, res, next) {
           beerResults: "",
           matchList: matchingUsers
         });
+      });
+    } else {
+      res.render("matches", {
+        user: req.session.user,
+        beerResults: "",
+        matchList: ""
       });
     }
   } catch (error) {

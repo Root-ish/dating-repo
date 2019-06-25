@@ -28,9 +28,8 @@
 
 @media only screen and (min-width: 961px) {
   .recent__container {
-    width: 35%;
+    width: 100%;
     margin-left: 0 5%;
-    margin-top: 0;
   }
 }
 
@@ -111,8 +110,7 @@
 
 @media only screen and (min-width: 961px) {
   .search__container {
-    width: 55%;
-    margin-right: 5%;
+    width: 100%;
   }
 }
 
@@ -228,4 +226,52 @@
 
 .beerResults .invisible {
   display: none;
+}
+
+
+.zero__state {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 1rem 2rem;
+  display: flex;
+  flex-flow: column;
+}
+
+.zero__state .search__container {
+  width: calc(100% - 25vw);
+  margin-left: 25vw;
+}
+
+.zero--beer {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-left: 25vw;
+}
+
+.zero--beer .curved__line{
+  width: 100px;
+  height: 20px;
+  border: solid 2px #fff;
+  border-color: #fff transparent transparent transparent;
+  border-radius: 50%/20px 20px 0 0;
+  transform: rotate(120deg);
+}
+
+.zero--beer h2{
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  padding-top: 1rem;
+}
+
+.zero__state .beerresult__container {
+  margin: 0 0 2rem 25vw;
+  width: calc(100% - 25vw);
 }

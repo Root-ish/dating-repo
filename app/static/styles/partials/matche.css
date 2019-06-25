@@ -20,8 +20,7 @@
 
 @media only screen and (min-width: 961px) {
   .matches__container--short {
-    width: 35%;
-    margin-right: 5%;
+    width: 100%;
   }
 }
 
@@ -55,13 +54,42 @@ ul {
   grid-template-columns: 100px 1fr;
   grid-template-rows: 100px calc(17.5em - 100px);
   height: 17.5em;
-  width: 200px;
+  width: 100%;
   padding: 0rem;
   background-color: #fff;
   border-radius: 10px;
   margin-right: 1rem;
   margin-bottom: 1rem;
   box-shadow: 0px 14px 14px 0px rgba(0, 0, 0, 0.2);
+}
+
+.user--empty {
+  flex: 1;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-flow: column;
+  justify-content: center;
+  height: 17.5em;
+  width: 100%;
+  padding: 0rem;
+  background-color: #fff;
+  border-radius: 10px;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0px 14px 14px 0px rgba(0, 0, 0, 0.2);
+  transition-duration: .25s;
+}
+
+.user--empty:hover {
+  box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.4);
+}
+
+.user--empty h4 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: #666;
 }
 
 .user:first-of-type {
@@ -73,10 +101,10 @@ ul {
 .matches__container--short .user{
   display: grid;
   position: relative;
-  grid-template-columns: 100px calc(200px - 100px);
+  grid-template-columns: 100px 1fr;
   grid-template-rows: 100px calc(17.5em - 100px);
   height: 17.5em;
-  width: 200px;
+  width: 100%;
   padding: 0rem;
   background-color: #fff;
   border-radius: 10px;
@@ -110,13 +138,25 @@ ul {
   padding-right: .5rem;
 }
 
+.beers--matchingList {
+ grid-column: 1 / 3;
+ grid-row: 2;
+ width: 100%;
+ height: 100%;
+ display: flex;
+ flex-flow: column;
+ align-items: center;
+ justify-content: flex-end;
+ padding: 0;
+}
+
  .user ul {
   grid-column: 1 / 3;
   grid-row: 2;
   width: 100%;
   height: 100%;
   display: flex;
-  flex-flow: column;
+  flex-flow: row;
   align-items: center;
   justify-content: flex-end;
   padding: 0;

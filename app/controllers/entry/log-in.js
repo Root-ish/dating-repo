@@ -27,7 +27,8 @@ async function logform(req, res, next) {
             beers: data.beers,
             image: data.image
           };
-          res.redirect("/");
+
+          res.redirect("/beers");
 
         } else {
           console.log("Wrong password");

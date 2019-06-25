@@ -1,3 +1,18 @@
+<% if (user.beers.length == 0) { %>
+<div class="zero__state">
+  <section class="search__container">
+    <form id="beer__search" action="/search-beer" class="beer__search" method="post">
+        <input type="text" name="beerName" id="searchName" placeholder="Search for a beer">
+        <button type="submit" name="button">Search</button>
+    </form>
+  </section>
+  <div class="zero--beer">
+    <div class="curved__line"></div>
+    <h2>Start by adding your favorite beer!</h2>
+  </div>
+</div>
+
+<% } else { %>
 <section class="search__container">
   <form id="beer__search" action="/search-beer" class="beer__search" method="post">
       <input type="text" name="beerName" id="searchName" placeholder="Search for a beer">
@@ -12,7 +27,7 @@
   <div class="beers__list">
 
   <% if (user.beers.length > 0) { %>
-    <% for(let i = user.beers.length - 1; i >= user.beers.length - 4; i--) { %>
+    <% for(let i = 0; i < user.beers.length; i++) { %>
       <div class="beer__container" style="background-image: url(<%- user.beers[i].beer.img %>)">
         <div class="beer__info">
           <h4 class="info__title">
@@ -33,26 +48,66 @@
   <h2 class="recent__title">Recent activities</h2>
   <ul class="matchUl">
   <% if (matchList.length > 0) { %>
+    <% if (matchList.length > 2) { %>
     <% for(let i = 0; i < matchList.length; i++) { %>
       <li class="user">
             <img src="<%= matchList[i].image %>" alt="<%= matchList[i].firstName %>">
             <h4 class="user__name">
               <%= matchList[i].firstName %> <%= matchList[i].lastName %>
             </h4>
-          <ul>
+          <div class="beers--matchingList">
             <span>Liked :</span>
-            <% for(let j = 0; j < matchList[i].beers.length; j++) { %>
-              <li style="background-image: url(<%- matchList[i].beers[j].beer.img %>)">
-                <h5><%= matchList[i].beers[j].beer.name %></h5>
-              </li>
-            <% } %>
-          </ul>
+            <ul>
+              <% for(let j = 0; j < matchList[i].beers.length; j++) { %>
+                <li style="background-image: url(<%- matchList[i].beers[j].beer.img %>)">
+                  <h5><%= matchList[i].beers[j].beer.name %></h5>
+                </li>
+              <% } %>
+            </ul>
+          </div>
       </li>
     <% } %>
-  <% } else {%>
-  <li class="match">
-    <p>Start adding beers and swiping</p>
-  </li>
+  <% } else { %>
+    <% for(let i = 0; i < matchList.length; i++) { %>
+      <li class="user">
+            <img src="<%= matchList[i].image %>" alt="<%= matchList[i].firstName %>">
+            <h4 class="user__name">
+              <%= matchList[i].firstName %> <%= matchList[i].lastName %>
+            </h4>
+          <div class="beers--matchingList">
+            <span>Liked :</span>
+            <ul>
+              <% for(let j = 0; j < matchList[i].beers.length; j++) { %>
+                <li style="background-image: url(<%- matchList[i].beers[j].beer.img %>)">
+                  <h5><%= matchList[i].beers[j].beer.name %></h5>
+                </li>
+              <% } %>
+            </ul>
+          </div>
+      </li>
+    <% } %>
+    <li class="user--empty">
+      <?xml version="1.0" encoding="UTF-8"?>
+      <svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <!-- Generator: Sketch Beta 54 (76473) - https://sketchapp.com -->
+          <title>Combined Shape</title>
+          <desc>Created with Sketch Beta.</desc>
+          <g id="ooto-Productivity-Dashboards" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <path d="M50,100 C22.3857625,100 0,77.6142375 0,50 C0,22.3857625 22.3857625,0 50,0 C77.6142375,0 100,22.3857625 100,50 C100,77.6142375 77.6142375,100 50,100 Z M54,48 C53.4477153,48 53,47.5522847 53,47 L53,18 C53,14.6666667 48,14.6666667 48,18 L48,47 C48,47.5522847 47.5522847,48 47,48 L18,48 C14.6666667,48 14.6666667,53 18,53 L47,53 C47.5522847,53 48,53.4477153 48,54 L48,83 C48,86.3333333 53,86.3333333 53,83 L53,54 C53,53.4477153 53.4477153,53 54,53 L83,53 C86.3333333,53 86.3333333,48 83,48 L54,48 Z" id="Combined-Shape" fill="#999999"></path>
+          </g>
+      </svg>
+      <h4 class="user__name">
+        Add more beers for a match.
+      </h4>
+    </li>
+  <% } %>
+  <% } else { %>
+    <li class="user">
+      <h4 class="user__name">
+        Add more beers for a match.
+      </h4>
+    </li>
   <% } %>
   </ul>
 </section>
+<% } %>
